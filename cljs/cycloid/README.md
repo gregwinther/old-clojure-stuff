@@ -1,6 +1,5 @@
-# test-js
-
-A Quil sketch designed to ... well, that part is up to you.
+# cycloid
+A cycloid running on the inside of a circle, creating novel patterns.
 
 ## Usage
 
@@ -10,7 +9,7 @@ For interactive development run `lein cljsbuild auto` command. This command will
 
 ## License
 
-Copyright © 2016 FIXME
+Copyright © 2016 Halvard Sutterud
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
