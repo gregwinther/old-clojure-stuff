@@ -1,6 +1,5 @@
-# test-js
-
-A Quil sketch designed to ... well, that part is up to you.
+# cycloid
+A cycloid running on the inside of a circle, creating novel patterns. Runs on clojurescript, compiled version found at my [folk.uio.no](http://folk.uio.no/halvarsu/images/animations/cycloid/) page
 
 ## Usage
 
@@ -10,7 +9,7 @@ For interactive development run `lein cljsbuild auto` command. This command will
 
 ## License
 
-Copyright © 2016 FIXME
+Copyright © 2016 Halvard Sutterud
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
