@@ -6,22 +6,20 @@
 
 
 (def w  20)
-(def width  640)
-(def height  480)
-(def rows  (int (/ width w)))
-(def cols  (int (/ height w)))
+; (def width  80)
+; (def height  80)
+; (def rows  (int (/ width w)))
+; (def cols  (int (/ height w)))
+(def rows  40)
+(def cols  80)
+(def width  (* rows w))
+(def height  (* cols w))
 (def directions [ :up :right :down :left ])
+(def total-boxes (* rows cols))
 
 
 (defn get-pos [index]
   [(mod index cols) (quot index cols)])
-
-
-(new-pos 300 :down)
-
-(get-pos 23)
-(get-index 24 0)
-(legal-pos? 24 0)
 
 
 (defn legal-pos? 
@@ -68,13 +66,12 @@
   [index visited]
   (.contains visited index))
 
-(defn get-next-vec [current visited]
+(defn get-next [current visited]
   (rand-nth (seq (filter (fn [x] (if (legal-pos? x) 
                                    (not (.contains visited x))
                                    false)) 
                          (get-adjacent current)))))
 
-(get-next-vec 2 [1 2 3 2])
 
 (defn get-next [current visited]
   (if-let [neighbors (seq (filter legal-pos? 
@@ -84,76 +81,107 @@
     nil))
 
 
-
 (defn update-state [state]
-  ( let [current (:current state)
-         visited (:visited state)]
-    ; if there is no next, backtrack
-    (if-let [next-current (get-next current visited)]
-      (-> state
-          (assoc :current next-current)
-          (update :visited #(conj % (:current state))))
-      state)))
+  (if (< (count (:visited-set state)) total-boxes)
+    ( let [current (:current state)
+           visited (:visited-set state)]
+      ; if there is no next, backtrack
+      (if-let [next-current (get-next current visited)]
+        (-> state
+            (assoc :index (count (:backtrack state)))
+            (update :visited-set #(conj % (:current state)))
+            (update :backtrack #(conj % (:current state)))
+            (assoc :current next-current))
+        (-> state
+            (update :index #(- % 1))
+            (update :visited-set #(conj % (:current state)))
+            (assoc :current (get (:backtrack state) (:index state)))
+            (assoc :backtrack (vec (drop-last (:backtrack state))))
+            )))
+    state)
+  )
 
+
+(def to-pixels [index]
+  (map (+ (* w %) (/ w 2)) (get-pos index)))
 
 (defn draw-state [state]
   (q/no-stroke)
-  (q/background 255)
-  (doseq [i (range cols)
-          j (range rows)]
-    (q/fill (q/map-range j 0 rows 0 255) 
-            200
-            160
-            100)
-    (q/rect (* i w) (* j w) (- w 2) (- w 2)))
-  (q/fill 100 100 100)
-  (doseq [index (:visited state)]
-    (let [[i j] (get-pos index)]
-     (q/rect (* i w) (* j w) (- w 2) (- w 2))))
   (q/fill 100 100 200)
-  (let [[i j] (get-pos (:current state))]
-    (q/rect (* i w) (* j w) (- w 2) (- w 2)))
+  ; (let [[i j] (get-pos (:current state))]
+  ;   (q/rect (* i w) (* j w) (- w 2) (- w 2)))
   (q/fill 0 0 255)
   (q/stroke 10)
   (q/stroke-weight 2)
-  (q/rect 15 6 60 35)
-  (let [index (:current state)
-        [i j] (get-pos index)]
-    (q/fill 0 0 0)
-    (q/text (str (:current state)) 20 20)
-    (q/text (str "(" i ", " j ")") 20 35)
-    (q/text (str (:visited state)) 20 55)
+  ; (q/rect 15 6 60 35)
+  ; (let [index (:current state)
+  ;       [i j] (get-pos index)]
+  ;   (q/fill 0 0 0)
+  ;   (q/text (str (:current state)) 20 20)
+  ;   (q/text (str "(" i ", " j ")") 20 35)
+  ;   )
+  (let [
+        pos2 (to-pixels (:current state)) 
+        [x1 y1] pos1]
+    (if-let [pos2 (to-pixels (take-last (:backtrack state)))]
+      (let [x2 y2 pos2])
+
+                       )
+
+    (q/with-stroke [255 255 255 255]
+      (q/point x1 y1))
+    (q/point x2 y2)
+    (if (> (count pos) 2)
+      (apply q/line pos)
+      )
     )
   )
 
 
+(apply + (flatten [1 2] [3 4]))
 
-(def init-state 
-  {:current center
-   :visited (conj (disj (get-adjacent center) (- center 1))
-                  ;(- center w 5)
-                  (+ center w 3)
-                  (- center 2))})
+(defn draw-background [state]
+  (q/no-stroke)
+  (q/fill 100 100 200)
+  (q/background 255)
+  ; draw all rects with colors
+  (doseq [i (range cols)
+          j (range rows)]
+    (q/fill 100
+            (q/map-range j 0 rows 0 255) 
+            160
+            100)
+    (q/rect (* i w) (* j w) (- w 2) (- w 2)))
+  (q/fill 100 100 100)
+  ; (doseq [index (:visited-set state)]
+  ;   (let [[i j] (get-pos index)]
+  ;    (q/rect (* i w) (* j w) (- w 2) (- w 2))))
+  )
 
-(def center 0)
-(def init-state 
-  {:current center
-   :visited (disj (get-adjacent center) (+ center 1)) })
 
-(disj (get-adjacent center) (+ center 1)) 
 
-union
 
-(conj #{1 2} 3)
+(def center (atom (get-index (/ cols 2) (/ rows 2))))
+(defn create-init-state []
+  {:current @center
+      :visited-set #{}
+      :backtrack []
+      :index 0})
+
 
 
 (defn setup []
-  (q/frame-rate 30)
+  (q/frame-rate 6)
   (q/color-mode :hsb)
-  init-state) 
+  (let [init-state (create-init-state)]
+    (draw-background init-state)
+    init-state)
+  (create-init-state)) 
 
 (defn reset-state [state event]
-  init-state)
+  (draw-background state)
+  (reset! center (:current state))
+  (create-init-state))
 
 (q/defsketch maze-generator
   :title "Maze Generator"
@@ -163,5 +191,6 @@ union
   :draw draw-state
   :mouse-pressed reset-state
   :features [:keep-on-top]
-  ; fun-mode.
-  :middleware [m/fun-mode])
+  :middleware [m/fun-mode
+               ; m/pause-on-error
+               ])
