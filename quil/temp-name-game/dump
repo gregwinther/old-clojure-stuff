@@ -1,0 +1,11 @@
+
+(defn legal-y? [y]
+  (and (<= y (- height step)) 
+       (>= y step)))
+(defn legal-x? [x]]
+  (and (<= x (- width step)) 
+       (>= x step)))
+(defn legal-pos? [pos]
+  (and (legal-x? (get pos 0))
+       (legal-y? (get pos 1))))
+

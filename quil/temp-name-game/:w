@@ -1,0 +1,101 @@
+(ns temp-name-game.sketch
+  (:require [quil.core :as q]
+            [quil.middleware :as m]))
+
+(def width 640)
+(def height 480)
+(def step 20)
+
+
+(defn legal-y? [y]
+  (and (<= y (- height step)) 
+       (>= y step)))
+(defn legal-x? [x]
+  (and (<= x (- width step)) 
+       (>= x step)))
+(defn legal-pos? [pos]
+  (and (legal-x? (get pos 0))
+       (legal-y? (get pos 1))))
+
+
+(def testv [10 20])
+(legal-pos? testv)
+
+
+(defn acceleration [[ax ay] x y vx vy])
+(defn forward-euler [state]
+  (let [[x y] (:pos state)
+        [vx vy] (:vel state)
+        [ax ay] (:acc state)]
+    (-> state
+     (assoc :acc acceleration x y vx vy)
+     (assoc :vel [(+ vx ax) (+ vy vy)])
+     (assoc :pos [(+ x vx) (+ y vy)])))
+
+(defn update-vel [state]
+  (let [[c y] (:vel state)
+        [vx vy] (:acc state)]
+     (assoc state :pos [(+ x vx) (+ y vy)])))
+
+(defn update-acc [state]
+  state)
+
+(defn update-state [state]
+  (-> state
+      (update-acc)
+      (update-vel)
+      (update-pos)
+      ))
+
+
+(def teststate {:pix-per-unit 10
+                :pos [1 2]
+                :vel [4 5]})
+(update-state teststate)
+
+(draw-border teststate)
+
+(defn draw-char [state]
+  (q/fill 100 200 200)
+  (let [[x y]  (:pos state)]
+    (q/ellipse x y 20 20)))
+
+(defn draw-border [state]
+  (q/fill 200)
+  (q/line 10 10 100 100)
+  (let [step  (:pix-per-unit state)]
+    (doseq [x (range 0 width step)]
+      (q/rect x 0      step step)
+      (q/rect x (- height step) step step))
+    (doseq [y (range step (- width step) step)]
+      (q/rect 0     y step step)
+      (q/rect (- width step) y step step))))
+
+
+(defn draw-state [state]
+  (q/background 0 0 0)
+  (draw-border state)
+  (draw-char state)
+  state)
+
+(defn setup []
+  (q/frame-rate 20)
+  { :pix-per-unit 10 
+   :pos [(/ width 2) (/ height 2)]
+   :vel [0 0]
+   :acc [0 0]})
+
+(q/defsketch game
+  :host "game"
+  :size [width height]
+  :draw draw-state
+  :update update-state
+  :setup setup
+  :middleware [m/pause-on-error 
+               m/fun-mode])
+
+(defn refresh []
+  (use :reload 'temp-name-game/sketch)
+  (.loop game))
+
+

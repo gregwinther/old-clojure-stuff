@@ -1,0 +1,1211 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f89f8d5b0dc, pid=3231, tid=0x00007f89efd0e700
+#
+# JRE version: OpenJDK Runtime Environment (8.0_131-b11) (build 1.8.0_131-8u131-b11-2ubuntu1.16.04.3-b11)
+# Java VM: OpenJDK 64-Bit Server VM (25.131-b11 mixed mode linux-amd64 compressed oops)
+# Problematic frame:
+# C  [libscsynth.so+0x220dc]  SC_UdpInPort::SC_UdpInPort(World*, int)+0x9c
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f89fc8e6000):  JavaThread "Thread-12" daemon [_thread_in_native, id=3463, stack(0x00007f89efc0e000,0x00007f89efd0f000)]
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x0000000000000160
+
+Registers:
+RAX=0x0000000000000001, RBX=0x00000000009978f0, RCX=0xffffffffffffff98, RDX=0x0000000000000001
+RSP=0x00007f89efd0ce40, RBP=0x0000000000000000, RSI=0x0000000000000001, RDI=0x0000000000000d91
+R8 =0x00007f89d4151700, R9 =0x00007f89efd0ce00, R10=0x00007f89d41519d0, R11=0x0000000000000246
+R12=0x0000000000000000, R13=0x00007f89efd0d640, R14=0x00007f89efd0d550, R15=0xfffffffffffffffc
+RIP=0x00007f89f8d5b0dc, EFLAGS=0x0000000000010202, CSGSFS=0x0000000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007f89efd0ce40)
+0x00007f89efd0ce40:   000000000000e16f 0000000000000000
+0x00007f89efd0ce50:   00000000009978f0 00007f8a4bc71b98
+0x00007f89efd0ce60:   0000000000000000 0000000000010000
+0x00007f89efd0ce70:   00000000009978f0 00000000009978f0
+0x00007f89efd0ce80:   000000000000e16f 00007f89f8d71492
+0x00007f89efd0ce90:   0000000000000010 00007f89efd0ceb0
+0x00007f89efd0cea0:   00007f89fc365990 00007f89f8fd1034
+0x00007f89efd0ceb0:   000000000000000a 00007f89efd0d6d0
+0x00007f89efd0cec0:   00007f89efd0cf90 00007f89f8fd0a61
+0x00007f89efd0ced0:   00007f89efd0cef8 0000000000000004
+0x00007f89efd0cee0:   000000000000000e 00007f89efd0ce00
+0x00007f89efd0cef0:   0000000000000000 00007f89efd0d550
+0x00007f89efd0cf00:   00007f89fc365990 00007f89f8d71460
+0x00007f89efd0cf10:   00007f89efd0d6d0 00007f89efd0ce00
+0x00007f89efd0cf20:   00007f89fc365900 0000000200000000
+0x00007f89efd0cf30:   0000000000000010 00007f89efd0ceb0
+0x00007f89efd0cf40:   00007f8900000002 00007f8a4a97fd31
+0x00007f89efd0cf50:   0000000000000001 73a028d92c6bda00
+0x00007f89efd0cf60:   00000000ffffffff 0000000000000001
+0x00007f89efd0cf70:   0000000000000002 0000000000000004
+0x00007f89efd0cf80:   00007f89f8fd2fcc 0000000000000000
+0x00007f89efd0cf90:   00007f89efd0d530 00007f89f8fc61a5
+0x00007f89efd0cfa0:   00007f89efd0d010 00000001005130b8
+0x00007f89efd0cfb0:   0000000000000000 00007f89f8fc5fec
+0x00007f89efd0cfc0:   0000000000000000 0000000000000000
+0x00007f89efd0cfd0:   0000000000000000 0000000000000000
+0x00007f89efd0cfe0:   000000000000000e ffffffffffffffff
+0x00007f89efd0cff0:   0000000000000000 0000000000000000
+0x00007f89efd0d000:   0000000000000000 00007f89fc7eff88
+0x00007f89efd0d010:   00007f89efd0d0e0 00007f8a4aac429b
+0x00007f89efd0d020:   000000000000000e ffffffffffffffff
+0x00007f89efd0d030:   00000000ffffffff 00007f8a4b1957b8 
+
+Instructions: (pc=0x00007f89f8d5b0dc)
+0x00007f89f8d5b0bc:   66 c1 c8 08 c7 43 24 00 00 00 00 66 89 43 22 e8
+0x00007f89f8d5b0cc:   50 e2 ff ff 85 c0 78 2d 48 89 df e8 64 dd ff ff
+0x00007f89f8d5b0dc:   80 bd 60 01 00 00 00 74 15 48 8b 15 a4 1c 24 00
+0x00007f89f8d5b0ec:   48 8d 7b 30 48 89 d9 31 f6 e8 26 cf ff ff 48 83 
+
+Register to memory mapping:
+
+RAX=0x0000000000000001 is an unknown value
+RBX=0x00000000009978f0 is an unknown value
+RCX=0xffffffffffffff98 is an unknown value
+RDX=0x0000000000000001 is an unknown value
+RSP=0x00007f89efd0ce40 is pointing into the stack for thread: 0x00007f89fc8e6000
+RBP=0x0000000000000000 is an unknown value
+RSI=0x0000000000000001 is an unknown value
+RDI=0x0000000000000d91 is an unknown value
+R8 =0x00007f89d4151700 is an unknown value
+R9 =0x00007f89efd0ce00 is pointing into the stack for thread: 0x00007f89fc8e6000
+R10=0x00007f89d41519d0 is an unknown value
+R11=0x0000000000000246 is an unknown value
+R12=0x0000000000000000 is an unknown value
+R13=0x00007f89efd0d640 is pointing into the stack for thread: 0x00007f89fc8e6000
+R14=0x00007f89efd0d550 is pointing into the stack for thread: 0x00007f89fc8e6000
+R15=0xfffffffffffffffc is an unknown value
+
+
+Stack: [0x00007f89efc0e000,0x00007f89efd0f000],  sp=0x00007f89efd0ce40,  free space=1019k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libscsynth.so+0x220dc]  SC_UdpInPort::SC_UdpInPort(World*, int)+0x9c
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  overtone.sc.machinery.server.native.lib_d8d13bff_7569_49cb_a13e_5e013fc22aa2.World_OpenUDP(Lcom/sun/jna/Pointer;I)I+0
+j  overtone.sc.machinery.server.native$eval4056$fn__4057.invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+15
+j  overtone.sc.machinery.server.native$scsynth_listen_udp.invokeStatic(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+55
+j  overtone.sc.machinery.server.native$scsynth_listen_udp.invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+6
+j  overtone.sc.machinery.server.connection$internal_booter.invokeStatic(Ljava/lang/Object;)Ljava/lang/Object;+201
+j  overtone.sc.machinery.server.connection$internal_booter.invoke(Ljava/lang/Object;)Ljava/lang/Object;+3
+j  overtone.sc.machinery.server.connection$boot_internal_server$fn__4149.invoke()Ljava/lang/Object;+13
+j  clojure.lang.AFn.run()V+1
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+=>0x00007f89fc8e6000 JavaThread "Thread-12" daemon [_thread_in_native, id=3463, stack(0x00007f89efc0e000,0x00007f89efd0f000)]
+  0x00007f89fc5bd000 JavaThread "pool-2-thread-4" [_thread_blocked, id=3456, stack(0x00007f89f1d2e000,0x00007f89f1e2f000)]
+  0x00007f89fc5b4800 JavaThread "pool-2-thread-3" [_thread_blocked, id=3455, stack(0x00007f89f1e2f000,0x00007f89f1f30000)]
+  0x00007f89fc55b800 JavaThread "pool-2-thread-2" [_thread_blocked, id=3452, stack(0x00007f89f1f30000,0x00007f89f2031000)]
+  0x00007f89fc542000 JavaThread "pool-2-thread-1" [_thread_blocked, id=3451, stack(0x00007f89f2031000,0x00007f89f2132000)]
+  0x00007f8a14001000 JavaThread "pool-3-thread-4" [_thread_blocked, id=3450, stack(0x00007f89f2532000,0x00007f89f2633000)]
+  0x00007f8a1803e800 JavaThread "pool-3-thread-3" [_thread_blocked, id=3449, stack(0x00007f89fbeff000,0x00007f89fc000000)]
+  0x00007f8a1803d800 JavaThread "pool-3-thread-2" [_thread_blocked, id=3448, stack(0x00007f89fbdfe000,0x00007f89fbeff000)]
+  0x00007f89fc36a000 JavaThread "pool-3-thread-1" [_thread_blocked, id=3447, stack(0x00007f8a30527000,0x00007f8a30628000)]
+  0x00007f89fc141000 JavaThread "AWT-XAWT" daemon [_thread_in_native, id=3445, stack(0x00007f8a30022000,0x00007f8a30123000)]
+  0x00007f89fc11f000 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=3444, stack(0x00007f8a30a40000,0x00007f8a30b41000)]
+  0x00007f8a0802a800 JavaThread "nREPL-worker-2" daemon [_thread_blocked, id=3401, stack(0x00007f8a30b54000,0x00007f8a30c55000)]
+  0x00000000008b6800 JavaThread "clojure-agent-send-off-pool-8" [_thread_blocked, id=3400, stack(0x00007f8a30426000,0x00007f8a30527000)]
+  0x00000000008b4800 JavaThread "clojure-agent-send-off-pool-6" [_thread_in_native, id=3295, stack(0x00007f8a30123000,0x00007f8a30224000)]
+  0x00007f8a00002800 JavaThread "clojure-agent-send-off-pool-5" [_thread_in_native, id=3294, stack(0x00007f8a30224000,0x00007f8a30325000)]
+  0x00007f8a00001000 JavaThread "clojure-agent-send-off-pool-4" [_thread_blocked, id=3293, stack(0x00007f8a30325000,0x00007f8a30426000)]
+  0x00007f8a440b0800 JavaThread "Service Thread" daemon [_thread_blocked, id=3246, stack(0x00007f8a311c9000,0x00007f8a312ca000)]
+  0x00007f8a440ad800 JavaThread "C1 CompilerThread1" daemon [_thread_blocked, id=3245, stack(0x00007f8a312ca000,0x00007f8a313cb000)]
+  0x00007f8a440ab000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=3244, stack(0x00007f8a313cb000,0x00007f8a314cc000)]
+  0x00007f8a440a8800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=3243, stack(0x00007f8a314cc000,0x00007f8a315cd000)]
+  0x00007f8a44080800 JavaThread "Finalizer" daemon [_thread_blocked, id=3242, stack(0x00007f8a31a24000,0x00007f8a31b25000)]
+  0x00007f8a4407b800 JavaThread "Reference Handler" daemon [_thread_blocked, id=3241, stack(0x00007f8a31b25000,0x00007f8a31c26000)]
+  0x00007f8a4400b000 JavaThread "main" [_thread_blocked, id=3233, stack(0x00007f8a4bf85000,0x00007f8a4c086000)]
+
+Other Threads:
+  0x00007f8a44074000 VMThread [stack: 0x00007f8a31c26000,0x00007f8a31d27000] [id=3240]
+  0x00007f8a440bf800 WatcherThread [stack: 0x00007f8a310c8000,0x00007f8a311c9000] [id=3247]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 315392K, used 76665K [0x00000000ebf00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 307200K, 22% used [0x00000000ebf00000,0x00000000f01e6488,0x00000000feb00000)
+  from space 8192K, 99% used [0x00000000ff800000,0x00000000ffff8010,0x0000000100000000)
+  to   space 10752K, 0% used [0x00000000feb00000,0x00000000feb00000,0x00000000ff580000)
+ ParOldGen       total 59392K, used 30186K [0x00000000c3c00000, 0x00000000c7600000, 0x00000000ebf00000)
+  object space 59392K, 50% used [0x00000000c3c00000,0x00000000c597aab0,0x00000000c7600000)
+ Metaspace       used 39389K, capacity 52789K, committed 53040K, reserved 1087488K
+  class space    used 10498K, capacity 15071K, committed 15152K, reserved 1048576K
+
+Card table byte_map: [0x00007f8a4845d000,0x00007f8a48640000] byte_map_base: 0x00007f8a47e3f000
+
+Marking Bits: (ParMarkBitMap*) 0x00007f8a4b2552c0
+ Begin Bits: [0x00007f8a331e0000, 0x00007f8a340f0000)
+ End Bits:   [0x00007f8a340f0000, 0x00007f8a35000000)
+
+Polling page: 0x00007f8a4c0a8000
+
+CodeCache: size=245760Kb used=7553Kb max_used=7553Kb free=238207Kb
+ bounds [0x00007f8a35000000, 0x00007f8a35770000, 0x00007f8a44000000]
+ total_blobs=3739 nmethods=3228 adapters=425
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 148,025 Thread 0x00007f8a440ad800 nmethod 3231 0x00007f8a3575ea10 code [0x00007f8a3575eb60, 0x00007f8a3575ec70]
+Event: 148,025 Thread 0x00007f8a440ad800 3232   !   1       java.nio.charset.Charset::defaultCharset (65 bytes)
+Event: 148,026 Thread 0x00007f8a440ad800 nmethod 3232 0x00007f8a3575ecd0 code [0x00007f8a3575ee80, 0x00007f8a3575f318]
+Event: 149,296 Thread 0x00007f8a440ad800 3233       1       java.lang.Double::doubleValue (5 bytes)
+Event: 149,296 Thread 0x00007f8a440ad800 nmethod 3233 0x00007f8a3575f650 code [0x00007f8a3575f7a0, 0x00007f8a3575f8b0]
+Event: 152,055 Thread 0x00007f8a440ad800 3234       1       java.util.concurrent.locks.AbstractQueuedSynchronizer::isOnSyncQueue (33 bytes)
+Event: 152,055 Thread 0x00007f8a440ad800 nmethod 3234 0x00007f8a3575f910 code [0x00007f8a3575fa80, 0x00007f8a3575fc10]
+Event: 152,401 Thread 0x00007f8a440ad800 3235       1       clojure.core$coll_QMARK_::invokeStatic (19 bytes)
+Event: 152,402 Thread 0x00007f8a440ad800 nmethod 3235 0x00007f8a3575fd10 code [0x00007f8a3575fe60, 0x00007f8a3575ffb0]
+Event: 154,113 Thread 0x00007f8a440ad800 3237       1       java.math.BigInteger::valueOf (62 bytes)
+
+GC Heap History (10 events):
+Event: 140,140 GC heap before
+{Heap before GC invocations=18 (full 1):
+ PSYoungGen      total 321024K, used 263813K [0x00000000ebf00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 313344K, 83% used [0x00000000ebf00000,0x00000000fc001778,0x00000000ff100000)
+  from space 7680K, 8% used [0x00000000ff880000,0x00000000ff920000,0x0000000100000000)
+  to   space 7680K, 0% used [0x00000000ff100000,0x00000000ff100000,0x00000000ff880000)
+ ParOldGen       total 37888K, used 24896K [0x00000000c3c00000, 0x00000000c6100000, 0x00000000ebf00000)
+  object space 37888K, 65% used [0x00000000c3c00000,0x00000000c54503d0,0x00000000c6100000)
+ Metaspace       used 28789K, capacity 35481K, committed 35496K, reserved 1075200K
+  class space    used 7318K, capacity 9776K, committed 9776K, reserved 1048576K
+Event: 140,156 GC heap after
+Heap after GC invocations=18 (full 1):
+ PSYoungGen      total 316416K, used 2960K [0x00000000ebf00000, 0x00000000fff00000, 0x0000000100000000)
+  eden space 313344K, 0% used [0x00000000ebf00000,0x00000000ebf00000,0x00000000ff100000)
+  from space 3072K, 96% used [0x00000000ff100000,0x00000000ff3e4010,0x00000000ff400000)
+  to   space 7168K, 0% used [0x00000000ff800000,0x00000000ff800000,0x00000000fff00000)
+ ParOldGen       total 37888K, used 25516K [0x00000000c3c00000, 0x00000000c6100000, 0x00000000ebf00000)
+  object space 37888K, 67% used [0x00000000c3c00000,0x00000000c54eb2f0,0x00000000c6100000)
+ Metaspace       used 28789K, capacity 35481K, committed 35496K, reserved 1075200K
+  class space    used 7318K, capacity 9776K, committed 9776K, reserved 1048576K
+}
+Event: 140,156 GC heap before
+{Heap before GC invocations=19 (full 2):
+ PSYoungGen      total 316416K, used 2960K [0x00000000ebf00000, 0x00000000fff00000, 0x0000000100000000)
+  eden space 313344K, 0% used [0x00000000ebf00000,0x00000000ebf00000,0x00000000ff100000)
+  from space 3072K, 96% used [0x00000000ff100000,0x00000000ff3e4010,0x00000000ff400000)
+  to   space 7168K, 0% used [0x00000000ff800000,0x00000000ff800000,0x00000000fff00000)
+ ParOldGen       total 37888K, used 25516K [0x00000000c3c00000, 0x00000000c6100000, 0x00000000ebf00000)
+  object space 37888K, 67% used [0x00000000c3c00000,0x00000000c54eb2f0,0x00000000c6100000)
+ Metaspace       used 28789K, capacity 35481K, committed 35496K, reserved 1075200K
+  class space    used 7318K, capacity 9776K, committed 9776K, reserved 1048576K
+Event: 140,526 GC heap after
+Heap after GC invocations=19 (full 2):
+ PSYoungGen      total 316416K, used 0K [0x00000000ebf00000, 0x00000000fff00000, 0x0000000100000000)
+  eden space 313344K, 0% used [0x00000000ebf00000,0x00000000ebf00000,0x00000000ff100000)
+  from space 3072K, 0% used [0x00000000ff100000,0x00000000ff100000,0x00000000ff400000)
+  to   space 7168K, 0% used [0x00000000ff800000,0x00000000ff800000,0x00000000fff00000)
+ ParOldGen       total 59392K, used 27318K [0x00000000c3c00000, 0x00000000c7600000, 0x00000000ebf00000)
+  object space 59392K, 45% used [0x00000000c3c00000,0x00000000c56adbe0,0x00000000c7600000)
+ Metaspace       used 28789K, capacity 35481K, committed 35496K, reserved 1075200K
+  class space    used 7318K, capacity 9776K, committed 9776K, reserved 1048576K
+}
+Event: 142,362 GC heap before
+{Heap before GC invocations=20 (full 2):
+ PSYoungGen      total 316416K, used 313344K [0x00000000ebf00000, 0x00000000fff00000, 0x0000000100000000)
+  eden space 313344K, 100% used [0x00000000ebf00000,0x00000000ff100000,0x00000000ff100000)
+  from space 3072K, 0% used [0x00000000ff100000,0x00000000ff100000,0x00000000ff400000)
+  to   space 7168K, 0% used [0x00000000ff800000,0x00000000ff800000,0x00000000fff00000)
+ ParOldGen       total 59392K, used 27318K [0x00000000c3c00000, 0x00000000c7600000, 0x00000000ebf00000)
+  object space 59392K, 45% used [0x00000000c3c00000,0x00000000c56adbe0,0x00000000c7600000)
+ Metaspace       used 31311K, capacity 39419K, committed 39728K, reserved 1077248K
+  class space    used 8070K, capacity 10962K, committed 11056K, reserved 1048576K
+Event: 142,383 GC heap after
+Heap after GC invocations=20 (full 2):
+ PSYoungGen      total 320000K, used 4580K [0x00000000ebf00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 312832K, 0% used [0x00000000ebf00000,0x00000000ebf00000,0x00000000ff080000)
+  from space 7168K, 63% used [0x00000000ff800000,0x00000000ffc791f8,0x00000000fff00000)
+  to   space 7680K, 0% used [0x00000000ff080000,0x00000000ff080000,0x00000000ff800000)
+ ParOldGen       total 59392K, used 27326K [0x00000000c3c00000, 0x00000000c7600000, 0x00000000ebf00000)
+  object space 59392K, 46% used [0x00000000c3c00000,0x00000000c56afbe0,0x00000000c7600000)
+ Metaspace       used 31311K, capacity 39419K, committed 39728K, reserved 1077248K
+  class space    used 8070K, capacity 10962K, committed 11056K, reserved 1048576K
+}
+Event: 144,221 GC heap before
+{Heap before GC invocations=21 (full 2):
+ PSYoungGen      total 320000K, used 317412K [0x00000000ebf00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 312832K, 100% used [0x00000000ebf00000,0x00000000ff080000,0x00000000ff080000)
+  from space 7168K, 63% used [0x00000000ff800000,0x00000000ffc791f8,0x00000000fff00000)
+  to   space 7680K, 0% used [0x00000000ff080000,0x00000000ff080000,0x00000000ff800000)
+ ParOldGen       total 59392K, used 27326K [0x00000000c3c00000, 0x00000000c7600000, 0x00000000ebf00000)
+  object space 59392K, 46% used [0x00000000c3c00000,0x00000000c56afbe0,0x00000000c7600000)
+ Metaspace       used 33341K, capacity 42577K, committed 42800K, reserved 1081344K
+  class space    used 8626K, capacity 11756K, committed 11824K, reserved 1048576K
+Event: 144,248 GC heap after
+Heap after GC invocations=21 (full 2):
+ PSYoungGen      total 320512K, used 6704K [0x00000000ebf00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 312832K, 0% used [0x00000000ebf00000,0x00000000ebf00000,0x00000000ff080000)
+  from space 7680K, 87% used [0x00000000ff080000,0x00000000ff70c020,0x00000000ff800000)
+  to   space 8192K, 0% used [0x00000000ff800000,0x00000000ff800000,0x0000000100000000)
+ ParOldGen       total 59392K, used 27334K [0x00000000c3c00000, 0x00000000c7600000, 0x00000000ebf00000)
+  object space 59392K, 46% used [0x00000000c3c00000,0x00000000c56b1be0,0x00000000c7600000)
+ Metaspace       used 33341K, capacity 42577K, committed 42800K, reserved 1081344K
+  class space    used 8626K, capacity 11756K, committed 11824K, reserved 1048576K
+}
+Event: 147,442 GC heap before
+{Heap before GC invocations=22 (full 2):
+ PSYoungGen      total 320512K, used 319536K [0x00000000ebf00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 312832K, 100% used [0x00000000ebf00000,0x00000000ff080000,0x00000000ff080000)
+  from space 7680K, 87% used [0x00000000ff080000,0x00000000ff70c020,0x00000000ff800000)
+  to   space 8192K, 0% used [0x00000000ff800000,0x00000000ff800000,0x0000000100000000)
+ ParOldGen       total 59392K, used 27334K [0x00000000c3c00000, 0x00000000c7600000, 0x00000000ebf00000)
+  object space 59392K, 46% used [0x00000000c3c00000,0x00000000c56b1be0,0x00000000c7600000)
+ Metaspace       used 38629K, capacity 51675K, committed 51888K, reserved 1087488K
+  class space    used 10283K, capacity 14710K, committed 14768K, reserved 1048576K
+Event: 147,482 GC heap after
+Heap after GC invocations=22 (full 2):
+ PSYoungGen      total 315392K, used 8160K [0x00000000ebf00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 307200K, 0% used [0x00000000ebf00000,0x00000000ebf00000,0x00000000feb00000)
+  from space 8192K, 99% used [0x00000000ff800000,0x00000000ffff8010,0x0000000100000000)
+  to   space 10752K, 0% used [0x00000000feb00000,0x00000000feb00000,0x00000000ff580000)
+ ParOldGen       total 59392K, used 30186K [0x00000000c3c00000, 0x00000000c7600000, 0x00000000ebf00000)
+  object space 59392K, 50% used [0x00000000c3c00000,0x00000000c597aab0,0x00000000c7600000)
+ Metaspace       used 38629K, capacity 51675K, committed 51888K, reserved 1087488K
+  class space    used 10283K, capacity 14710K, committed 14768K, reserved 1048576K
+}
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 1,235 Thread 0x00007f8a4400b000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000ec580320) thrown at [/build/openjdk-8-pZyJp3/openjdk-8-8u131-b11/src/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+Event: 1,235 Thread 0x00007f8a4400b000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000ec580530) thrown at [/build/openjdk-8-pZyJp3/openjdk-8-8u131-b11/src/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+Event: 12,330 Thread 0x00007f8a44207000 Exception <a 'java/io/FileNotFoundException'> (0x00000000eca67230) thrown at [/build/openjdk-8-pZyJp3/openjdk-8-8u131-b11/src/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 12,336 Thread 0x00007f8a44207000 Exception <a 'java/io/FileNotFoundException'> (0x00000000ecbab080) thrown at [/build/openjdk-8-pZyJp3/openjdk-8-8u131-b11/src/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 13,003 Thread 0x00007f8a44520800 Exception <a 'java/net/SocketException': Socket closed> (0x00000000ee78fbe8) thrown at [/build/openjdk-8-pZyJp3/openjdk-8-8u131-b11/src/hotspot/src/share/vm/prims/jni.cpp, line 735]
+Event: 132,652 Thread 0x00007f8a0802a800 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x00000000ec020c90) thrown at [/build/openjdk-8-pZyJp3/openjdk-8-8u131-b11/src/hotspot/src/share/vm/prims/methodHandles.cpp, line 1146]
+Event: 132,656 Thread 0x00007f8a0802a800 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x00000000ec02f250) thrown at [/build/openjdk-8-pZyJp3/openjdk-8-8u131-b11/src/hotspot/src/share/vm/prims/methodHandles.cpp, line 1146]
+Event: 132,709 Thread 0x00007f8a0802a800 Exception <a 'java/io/FileNotFoundException'> (0x00000000ec0b1bb8) thrown at [/build/openjdk-8-pZyJp3/openjdk-8-8u131-b11/src/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 132,709 Thread 0x00007f8a0802a800 Exception <a 'java/io/FileNotFoundException'> (0x00000000ec0b2d20) thrown at [/build/openjdk-8-pZyJp3/openjdk-8-8u131-b11/src/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 132,893 Thread 0x00007f8a0802a800 Exception <a 'java/lang/ClassNotFoundException': sun/dc/DuctusRenderingEngine> (0x00000000ec11e0e8) thrown at [/build/openjdk-8-pZyJp3/openjdk-8-8u131-b11/src/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+
+Events (10 events):
+Event: 148,009 loading class com/sun/jna/WeakIdentityHashMap
+Event: 148,009 loading class com/sun/jna/WeakIdentityHashMap done
+Event: 148,010 loading class com/sun/jna/Memory$SharedMemory
+Event: 148,010 loading class com/sun/jna/Memory$SharedMemory done
+Event: 148,020 loading class com/sun/jna/Structure$2$StructureSet
+Event: 148,020 loading class com/sun/jna/Structure$2$StructureSet done
+Event: 148,022 loading class com/sun/jna/NativeString
+Event: 148,022 loading class com/sun/jna/NativeString done
+Event: 154,112 Executing VM operation: RevokeBias
+Event: 154,113 Executing VM operation: RevokeBias done
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 08:06 1182500                            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+00600000-00601000 r--p 00000000 08:06 1182500                            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+00601000-00602000 rw-p 00001000 08:06 1182500                            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+0089e000-009b6000 rw-p 00000000 00:00 0                                  [heap]
+c3c00000-c7600000 rw-p 00000000 00:00 0 
+c7600000-ebf00000 ---p 00000000 00:00 0 
+ebf00000-100000000 rw-p 00000000 00:00 0 
+100000000-100ecc000 rw-p 00000000 00:00 0 
+100ecc000-140000000 ---p 00000000 00:00 0 
+7f89d3951000-7f89d3952000 ---p 00000000 00:00 0 
+7f89d3952000-7f89d4152000 rw-p 00000000 00:00 0 
+7f89d4152000-7f89d4153000 ---p 00000000 00:00 0 
+7f89d4153000-7f89d41d3000 rw-p 00000000 00:00 0 
+7f89d41d3000-7f89d41d4000 ---p 00000000 00:00 0 
+7f89d41d4000-7f89e49d5000 rw-p 00000000 00:00 0 
+7f89e49d5000-7f89e49da000 r-xp 00000000 08:06 298369                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDChaosUGens.so
+7f89e49da000-7f89e4bd9000 ---p 00005000 08:06 298369                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDChaosUGens.so
+7f89e4bd9000-7f89e4bda000 r--p 00004000 08:06 298369                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDChaosUGens.so
+7f89e4bda000-7f89e4bdb000 rw-p 00005000 08:06 298369                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDChaosUGens.so
+7f89e4bdb000-7f89e4be7000 r-xp 00000000 08:06 301894                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/TriggerUGens.so
+7f89e4be7000-7f89e4de6000 ---p 0000c000 08:06 301894                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/TriggerUGens.so
+7f89e4de6000-7f89e4de7000 r--p 0000b000 08:06 301894                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/TriggerUGens.so
+7f89e4de7000-7f89e4de8000 rw-p 0000c000 08:06 301894                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/TriggerUGens.so
+7f89e4de8000-7f89e4deb000 r-xp 00000000 08:06 298357                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BlackrainUGens.so
+7f89e4deb000-7f89e4feb000 ---p 00003000 08:06 298357                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BlackrainUGens.so
+7f89e4feb000-7f89e4fec000 r--p 00003000 08:06 298357                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BlackrainUGens.so
+7f89e4fec000-7f89e4fed000 rw-p 00004000 08:06 298357                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BlackrainUGens.so
+7f89e4fed000-7f89e5008000 r-xp 00000000 08:06 298345                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/AtkUGens.so
+7f89e5008000-7f89e5208000 ---p 0001b000 08:06 298345                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/AtkUGens.so
+7f89e5208000-7f89e5209000 r--p 0001b000 08:06 298345                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/AtkUGens.so
+7f89e5209000-7f89e520a000 rw-p 0001c000 08:06 298345                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/AtkUGens.so
+7f89e520a000-7f89e520c000 r-xp 00000000 08:06 301896                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/UnpackFFTUGens.so
+7f89e520c000-7f89e540b000 ---p 00002000 08:06 301896                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/UnpackFFTUGens.so
+7f89e540b000-7f89e540c000 r--p 00001000 08:06 301896                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/UnpackFFTUGens.so
+7f89e540c000-7f89e540d000 rw-p 00002000 08:06 301896                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/UnpackFFTUGens.so
+7f89e540d000-7f89e5419000 rw-p 00000000 00:00 0 
+7f89e5419000-7f89e541f000 r-xp 00000000 08:06 301886                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MulAddUGens.so
+7f89e541f000-7f89e561e000 ---p 00006000 08:06 301886                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MulAddUGens.so
+7f89e561e000-7f89e561f000 r--p 00005000 08:06 301886                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MulAddUGens.so
+7f89e561f000-7f89e5620000 rw-p 00006000 08:06 301886                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MulAddUGens.so
+7f89e5620000-7f89e5621000 ---p 00000000 00:00 0 
+7f89e5621000-7f89e5e21000 rw-p 00000000 00:00 0 
+7f89e5e21000-7f89e5e24000 r-xp 00000000 08:06 301885                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MouseUGens.so
+7f89e5e24000-7f89e6023000 ---p 00003000 08:06 301885                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MouseUGens.so
+7f89e6023000-7f89e6024000 r--p 00002000 08:06 301885                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MouseUGens.so
+7f89e6024000-7f89e6025000 rw-p 00003000 08:06 301885                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MouseUGens.so
+7f89e6025000-7f89e6029000 r-xp 00000000 08:06 298344                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/AmbisonicUGens.so
+7f89e6029000-7f89e6229000 ---p 00004000 08:06 298344                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/AmbisonicUGens.so
+7f89e6229000-7f89e622a000 r--p 00004000 08:06 298344                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/AmbisonicUGens.so
+7f89e622a000-7f89e622b000 rw-p 00005000 08:06 298344                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/AmbisonicUGens.so
+7f89e622b000-7f89e622d000 r-xp 00000000 08:06 298373                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDGetenvUGen.so
+7f89e622d000-7f89e642c000 ---p 00002000 08:06 298373                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDGetenvUGen.so
+7f89e642c000-7f89e642d000 r--p 00001000 08:06 298373                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDGetenvUGen.so
+7f89e642d000-7f89e642e000 rw-p 00002000 08:06 298373                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDGetenvUGen.so
+7f89e642e000-7f89e6431000 r-xp 00000000 08:06 298366                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/LoopBuf.so
+7f89e6431000-7f89e6630000 ---p 00003000 08:06 298366                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/LoopBuf.so
+7f89e6630000-7f89e6631000 r--p 00002000 08:06 298366                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/LoopBuf.so
+7f89e6631000-7f89e6632000 rw-p 00003000 08:06 298366                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/LoopBuf.so
+7f89e6632000-7f89e6638000 r-xp 00000000 08:06 301880                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/IOUGens.so
+7f89e6638000-7f89e6838000 ---p 00006000 08:06 301880                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/IOUGens.so
+7f89e6838000-7f89e6839000 r--p 00006000 08:06 301880                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/IOUGens.so
+7f89e6839000-7f89e683a000 rw-p 00007000 08:06 301880                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/IOUGens.so
+7f89e683a000-7f89e683b000 ---p 00000000 00:00 0 
+7f89e683b000-7f89e703b000 rw-p 00000000 00:00 0 
+7f89e703b000-7f89e703e000 r-xp 00000000 08:06 301874                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/DiskIO_UGens.so
+7f89e703e000-7f89e723e000 ---p 00003000 08:06 301874                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/DiskIO_UGens.so
+7f89e723e000-7f89e723f000 r--p 00003000 08:06 301874                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/DiskIO_UGens.so
+7f89e723f000-7f89e7240000 rw-p 00004000 08:06 301874                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/DiskIO_UGens.so
+7f89e7240000-7f89e7241000 rw-p 00000000 00:00 0 
+7f89e7241000-7f89e7243000 r-xp 00000000 08:06 299985                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/RFWUGens.so
+7f89e7243000-7f89e7442000 ---p 00002000 08:06 299985                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/RFWUGens.so
+7f89e7442000-7f89e7443000 r--p 00001000 08:06 299985                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/RFWUGens.so
+7f89e7443000-7f89e7444000 rw-p 00002000 08:06 299985                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/RFWUGens.so
+7f89e7444000-7f89e744a000 r-xp 00000000 08:06 301892                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/ReverbUGens.so
+7f89e744a000-7f89e7649000 ---p 00006000 08:06 301892                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/ReverbUGens.so
+7f89e7649000-7f89e764a000 r--p 00005000 08:06 301892                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/ReverbUGens.so
+7f89e764a000-7f89e764b000 rw-p 00006000 08:06 301892                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/ReverbUGens.so
+7f89e764b000-7f89e764d000 r-xp 00000000 08:06 298374                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDOscUGens.so
+7f89e764d000-7f89e784c000 ---p 00002000 08:06 298374                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDOscUGens.so
+7f89e784c000-7f89e784d000 r--p 00001000 08:06 298374                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDOscUGens.so
+7f89e784d000-7f89e784e000 rw-p 00002000 08:06 298374                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDOscUGens.so
+7f89e784e000-7f89e7851000 r-xp 00000000 08:06 301878                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/GendynUGens.so
+7f89e7851000-7f89e7a50000 ---p 00003000 08:06 301878                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/GendynUGens.so
+7f89e7a50000-7f89e7a51000 r--p 00002000 08:06 301878                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/GendynUGens.so
+7f89e7a51000-7f89e7a52000 rw-p 00003000 08:06 301878                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/GendynUGens.so
+7f89e7a52000-7f89e7a58000 r-xp 00000000 08:06 298356                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BhobNoise.so
+7f89e7a58000-7f89e7c57000 ---p 00006000 08:06 298356                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BhobNoise.so
+7f89e7c57000-7f89e7c58000 r--p 00005000 08:06 298356                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BhobNoise.so
+7f89e7c58000-7f89e7c59000 rw-p 00006000 08:06 298356                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BhobNoise.so
+7f89e7c59000-7f89e7c5d000 r-xp 00000000 08:06 298348                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BatUGens.so
+7f89e7c5d000-7f89e7e5c000 ---p 00004000 08:06 298348                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BatUGens.so
+7f89e7e5c000-7f89e7e5d000 r--p 00003000 08:06 298348                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BatUGens.so
+7f89e7e5d000-7f89e7e5e000 rw-p 00004000 08:06 298348                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BatUGens.so
+7f89e7e5e000-7f89e7e6b000 r-xp 00000000 08:06 299983                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/NCAnalysisUGens.so
+7f89e7e6b000-7f89e806a000 ---p 0000d000 08:06 299983                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/NCAnalysisUGens.so
+7f89e806a000-7f89e806b000 r--p 0000c000 08:06 299983                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/NCAnalysisUGens.so
+7f89e806b000-7f89e806c000 rw-p 0000d000 08:06 299983                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/NCAnalysisUGens.so
+7f89e806c000-7f89e80b7000 rw-p 00000000 00:00 0 
+7f89e80b7000-7f89e80bb000 r-xp 00000000 08:06 298346                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/AY_UGen.so
+7f89e80bb000-7f89e82ba000 ---p 00004000 08:06 298346                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/AY_UGen.so
+7f89e82ba000-7f89e82bb000 r--p 00003000 08:06 298346                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/AY_UGen.so
+7f89e82bb000-7f89e82bc000 rw-p 00004000 08:06 298346                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/AY_UGen.so
+7f89e82bc000-7f89e82be000 rw-p 00000000 00:00 0 
+7f89e82be000-7f89e82c6000 r-xp 00000000 08:06 299991                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/TJUGens.so
+7f89e82c6000-7f89e84c5000 ---p 00008000 08:06 299991                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/TJUGens.so
+7f89e84c5000-7f89e84c6000 r--p 00007000 08:06 299991                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/TJUGens.so
+7f89e84c6000-7f89e84c7000 rw-p 00008000 08:06 299991                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/TJUGens.so
+7f89e84c7000-7f89e84d1000 r-xp 00000000 08:06 298371                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDFFTUGens.so
+7f89e84d1000-7f89e86d0000 ---p 0000a000 08:06 298371                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDFFTUGens.so
+7f89e86d0000-7f89e86d1000 r--p 00009000 08:06 298371                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDFFTUGens.so
+7f89e86d1000-7f89e86d2000 rw-p 0000a000 08:06 298371                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDFFTUGens.so
+7f89e86d2000-7f89e86de000 rw-p 00000000 00:00 0 
+7f89e86de000-7f89e86ea000 r-xp 00000000 08:06 299984                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/PitchDetection.so
+7f89e86ea000-7f89e88e9000 ---p 0000c000 08:06 299984                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/PitchDetection.so
+7f89e88e9000-7f89e88ea000 r--p 0000b000 08:06 299984                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/PitchDetection.so
+7f89e88ea000-7f89e88eb000 rw-p 0000c000 08:06 299984                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/PitchDetection.so
+7f89e88eb000-7f89e88ee000 r-xp 00000000 08:06 299982                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MembraneUGens.so
+7f89e88ee000-7f89e8aed000 ---p 00003000 08:06 299982                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MembraneUGens.so
+7f89e8aed000-7f89e8aee000 r--p 00002000 08:06 299982                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MembraneUGens.so
+7f89e8aee000-7f89e8aef000 rw-p 00003000 08:06 299982                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MembraneUGens.so
+7f89e8aef000-7f89e8b21000 r-xp 00000000 08:06 301870                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BinaryOpUGens.so
+7f89e8b21000-7f89e8d21000 ---p 00032000 08:06 301870                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BinaryOpUGens.so
+7f89e8d21000-7f89e8d22000 r--p 00032000 08:06 301870                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BinaryOpUGens.so
+7f89e8d22000-7f89e8d23000 rw-p 00033000 08:06 301870                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BinaryOpUGens.so
+7f89e8d23000-7f89e8d2b000 r-xp 00000000 08:06 299986                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/RMEQSuite.so
+7f89e8d2b000-7f89e8f2a000 ---p 00008000 08:06 299986                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/RMEQSuite.so
+7f89e8f2a000-7f89e8f2b000 r--p 00007000 08:06 299986                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/RMEQSuite.so
+7f89e8f2b000-7f89e8f2c000 rw-p 00008000 08:06 299986                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/RMEQSuite.so
+7f89e8f2c000-7f89e8f42000 r-xp 00000000 08:06 298354                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BhobFilt.so
+7f89e8f42000-7f89e9141000 ---p 00016000 08:06 298354                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BhobFilt.so
+7f89e9141000-7f89e9142000 r--p 00015000 08:06 298354                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BhobFilt.so
+7f89e9142000-7f89e9143000 rw-p 00016000 08:06 298354                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BhobFilt.so
+7f89e9143000-7f89e9145000 r-xp 00000000 08:06 301893                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/TestUGens.so
+7f89e9145000-7f89e9344000 ---p 00002000 08:06 301893                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/TestUGens.so
+7f89e9344000-7f89e9345000 r--p 00001000 08:06 301893                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/TestUGens.so
+7f89e9345000-7f89e9346000 rw-p 00002000 08:06 301893                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/TestUGens.so
+7f89e9346000-7f89e9380000 r-xp 00000000 08:06 298362                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/JoshGrainUGens.so
+7f89e9380000-7f89e957f000 ---p 0003a000 08:06 298362                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/JoshGrainUGens.so
+7f89e957f000-7f89e9580000 r--p 00039000 08:06 298362                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/JoshGrainUGens.so
+7f89e9580000-7f89e9581000 rw-p 0003a000 08:06 298362                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/JoshGrainUGens.so
+7f89e9581000-7f89e9583000 r-xp 00000000 08:06 298375                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDPollUGens.so
+7f89e9583000-7f89e9782000 ---p 00002000 08:06 298375                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDPollUGens.so
+7f89e9782000-7f89e9783000 r--p 00001000 08:06 298375                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDPollUGens.so
+7f89e9783000-7f89e9784000 rw-p 00002000 08:06 298375                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDPollUGens.so
+7f89e9784000-7f89e9797000 r-xp 00000000 08:06 298363                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/JoshPVUGens.so
+7f89e9797000-7f89e9996000 ---p 00013000 08:06 298363                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/JoshPVUGens.so
+7f89e9996000-7f89e9997000 r--p 00012000 08:06 298363                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/JoshPVUGens.so
+7f89e9997000-7f89e9998000 rw-p 00013000 08:06 298363                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/JoshPVUGens.so
+7f89e9998000-7f89e99a4000 rw-p 00000000 00:00 0 
+7f89e99a4000-7f89e99a6000 r-xp 00000000 08:06 298378                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDTriggeredStatsUgens.so
+7f89e99a6000-7f89e9ba5000 ---p 00002000 08:06 298378                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDTriggeredStatsUgens.so
+7f89e9ba5000-7f89e9ba6000 r--p 00001000 08:06 298378                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDTriggeredStatsUgens.so
+7f89e9ba6000-7f89e9ba7000 rw-p 00002000 08:06 298378                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDTriggeredStatsUgens.so
+7f89e9ba7000-7f89e9baa000 r-xp 00000000 08:06 299981                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MdaUGens.so
+7f89e9baa000-7f89e9da9000 ---p 00003000 08:06 299981                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MdaUGens.so
+7f89e9da9000-7f89e9daa000 r--p 00002000 08:06 299981                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MdaUGens.so
+7f89e9daa000-7f89e9ec9000 rw-p 00003000 08:06 299981                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MdaUGens.so
+7f89e9ec9000-7f89e9ecc000 r-xp 00000000 08:06 298359                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/DistortionUGens.so
+7f89e9ecc000-7f89ea0cb000 ---p 00003000 08:06 298359                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/DistortionUGens.so
+7f89ea0cb000-7f89ea0cc000 r--p 00002000 08:06 298359                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/DistortionUGens.so
+7f89ea0cc000-7f89ea0cd000 rw-p 00003000 08:06 298359                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/DistortionUGens.so
+7f89ea0cd000-7f89ea0de000 r-xp 00000000 08:06 301888                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/OscUGens.so
+7f89ea0de000-7f89ea2dd000 ---p 00011000 08:06 301888                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/OscUGens.so
+7f89ea2dd000-7f89ea2de000 r--p 00010000 08:06 301888                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/OscUGens.so
+7f89ea2de000-7f89ea2df000 rw-p 00011000 08:06 301888                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/OscUGens.so
+7f89ea2df000-7f89ea2e4000 r-xp 00000000 08:06 298353                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BhobFFT.so
+7f89ea2e4000-7f89ea4e3000 ---p 00005000 08:06 298353                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BhobFFT.so
+7f89ea4e3000-7f89ea4e4000 r--p 00004000 08:06 298353                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BhobFFT.so
+7f89ea4e4000-7f89ea4e5000 rw-p 00005000 08:06 298353                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BhobFFT.so
+7f89ea4e5000-7f89ea4f1000 rw-p 00000000 00:00 0 
+7f89ea4f1000-7f89ea4fd000 r-xp 00000000 08:06 301876                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/FFT_UGens.so
+7f89ea4fd000-7f89ea6fd000 ---p 0000c000 08:06 301876                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/FFT_UGens.so
+7f89ea6fd000-7f89ea6fe000 r--p 0000c000 08:06 301876                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/FFT_UGens.so
+7f89ea6fe000-7f89ea6ff000 rw-p 0000d000 08:06 301876                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/FFT_UGens.so
+7f89ea6ff000-7f89ea72f000 rw-p 00000000 00:00 0 
+7f89ea72f000-7f89ea731000 r-xp 00000000 08:06 301890                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/PhysicalModelingUGens.so
+7f89ea731000-7f89ea930000 ---p 00002000 08:06 301890                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/PhysicalModelingUGens.so
+7f89ea930000-7f89ea931000 r--p 00001000 08:06 301890                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/PhysicalModelingUGens.so
+7f89ea931000-7f89ea932000 rw-p 00002000 08:06 301890                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/PhysicalModelingUGens.so
+7f89ea932000-7f89ea945000 r-xp 00000000 08:06 301895                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/UnaryOpUGens.so
+7f89ea945000-7f89eab45000 ---p 00013000 08:06 301895                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/UnaryOpUGens.so
+7f89eab45000-7f89eab46000 r--p 00013000 08:06 301895                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/UnaryOpUGens.so
+7f89eab46000-7f89eab47000 rw-p 00014000 08:06 301895                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/UnaryOpUGens.so
+7f89eab47000-7f89eab4d000 r-xp 00000000 08:06 298349                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BBCut2UGens.so
+7f89eab4d000-7f89ead4c000 ---p 00006000 08:06 298349                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BBCut2UGens.so
+7f89ead4c000-7f89ead4d000 r--p 00005000 08:06 298349                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BBCut2UGens.so
+7f89ead4d000-7f89ead4f000 rw-p 00006000 08:06 298349                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BBCut2UGens.so
+7f89ead4f000-7f89ead52000 r-xp 00000000 08:06 299993                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/VOSIM.so
+7f89ead52000-7f89eaf51000 ---p 00003000 08:06 299993                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/VOSIM.so
+7f89eaf51000-7f89eaf52000 r--p 00002000 08:06 299993                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/VOSIM.so
+7f89eaf52000-7f89eaf53000 rw-p 00003000 08:06 299993                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/VOSIM.so
+7f89eaf53000-7f89eaf5f000 r-xp 00000000 08:06 301873                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/DemandUGens.so
+7f89eaf5f000-7f89eb15f000 ---p 0000c000 08:06 301873                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/DemandUGens.so
+7f89eb15f000-7f89eb160000 r--p 0000c000 08:06 301873                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/DemandUGens.so
+7f89eb160000-7f89eb161000 rw-p 0000d000 08:06 301873                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/DemandUGens.so
+7f89eb161000-7f89eb166000 r-xp 00000000 08:06 298358                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/Concat.so
+7f89eb166000-7f89eb365000 ---p 00005000 08:06 298358                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/Concat.so
+7f89eb365000-7f89eb366000 r--p 00004000 08:06 298358                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/Concat.so
+7f89eb366000-7f89eb367000 rw-p 00005000 08:06 298358                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/Concat.so
+7f89eb367000-7f89eb385000 r-xp 00000000 08:06 298364                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/JoshUGens.so
+7f89eb385000-7f89eb585000 ---p 0001e000 08:06 298364                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/JoshUGens.so
+7f89eb585000-7f89eb586000 r--p 0001e000 08:06 298364                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/JoshUGens.so
+7f89eb586000-7f89eb587000 rw-p 0001f000 08:06 298364                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/JoshUGens.so
+7f89eb587000-7f89eb597000 r-xp 00000000 08:06 298361                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/JoshAmbiUGens.so
+7f89eb597000-7f89eb796000 ---p 00010000 08:06 298361                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/JoshAmbiUGens.so
+7f89eb796000-7f89eb797000 r--p 0000f000 08:06 298361                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/JoshAmbiUGens.so
+7f89eb797000-7f89eb798000 rw-p 00010000 08:06 298361                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/JoshAmbiUGens.so
+7f89eb798000-7f89eb7b0000 r-xp 00000000 08:06 301879                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/GrainUGens.so
+7f89eb7b0000-7f89eb9af000 ---p 00018000 08:06 301879                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/GrainUGens.so
+7f89eb9af000-7f89eb9b0000 r--p 00017000 08:06 301879                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/GrainUGens.so
+7f89eb9b0000-7f89eb9b1000 rw-p 00018000 08:06 301879                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/GrainUGens.so
+7f89eb9b1000-7f89eb9b3000 r-xp 00000000 08:06 298370                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDDistortionUGens.so
+7f89eb9b3000-7f89ebbb2000 ---p 00002000 08:06 298370                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDDistortionUGens.so
+7f89ebbb2000-7f89ebbb3000 r--p 00001000 08:06 298370                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDDistortionUGens.so
+7f89ebbb3000-7f89ebbb4000 rw-p 00002000 08:06 298370                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDDistortionUGens.so
+7f89ebbb4000-7f89ebbbc000 r-xp 00000000 08:06 299992                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/VBAP.so
+7f89ebbbc000-7f89ebdbb000 ---p 00008000 08:06 299992                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/VBAP.so
+7f89ebdbb000-7f89ebdbc000 r--p 00007000 08:06 299992                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/VBAP.so
+7f89ebdbc000-7f89ebdbd000 rw-p 00008000 08:06 299992                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/VBAP.so
+7f89ebdbd000-7f89ebdc1000 r-xp 00000000 08:06 299990                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/TagSystemUgens.so
+7f89ebdc1000-7f89ebfc0000 ---p 00004000 08:06 299990                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/TagSystemUgens.so
+7f89ebfc0000-7f89ebfc1000 r--p 00003000 08:06 299990                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/TagSystemUgens.so
+7f89ebfc1000-7f89ebfc2000 rw-p 00004000 08:06 299990                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/TagSystemUgens.so
+7f89ebfc2000-7f89ebfc8000 r-xp 00000000 08:06 301891                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/PV_ThirdParty.so
+7f89ebfc8000-7f89ec1c8000 ---p 00006000 08:06 301891                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/PV_ThirdParty.so
+7f89ec1c8000-7f89ec1c9000 r--p 00006000 08:06 301891                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/PV_ThirdParty.so
+7f89ec1c9000-7f89ec1ca000 rw-p 00007000 08:06 301891                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/PV_ThirdParty.so
+7f89ec1ca000-7f89ec1fa000 rw-p 00000000 00:00 0 
+7f89ec1fa000-7f89ec216000 r-xp 00000000 08:06 301877                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/FilterUGens.so
+7f89ec216000-7f89ec415000 ---p 0001c000 08:06 301877                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/FilterUGens.so
+7f89ec415000-7f89ec416000 r--p 0001b000 08:06 301877                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/FilterUGens.so
+7f89ec416000-7f89ec417000 rw-p 0001c000 08:06 301877                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/FilterUGens.so
+7f89ec417000-7f89ec41a000 r-xp 00000000 08:06 298377                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDTreeUGens.so
+7f89ec41a000-7f89ec619000 ---p 00003000 08:06 298377                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDTreeUGens.so
+7f89ec619000-7f89ec61a000 r--p 00002000 08:06 298377                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDTreeUGens.so
+7f89ec61a000-7f89ec61b000 rw-p 00003000 08:06 298377                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDTreeUGens.so
+7f89ec61b000-7f89ec620000 r-xp 00000000 08:06 298355                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BhobGrain.so
+7f89ec620000-7f89ec820000 ---p 00005000 08:06 298355                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BhobGrain.so
+7f89ec820000-7f89ec821000 r--p 00005000 08:06 298355                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BhobGrain.so
+7f89ec821000-7f89ec822000 rw-p 00006000 08:06 298355                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BhobGrain.so
+7f89ec822000-7f89ec850000 r-xp 00000000 08:06 301872                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/DelayUGens.so
+7f89ec850000-7f89eca50000 ---p 0002e000 08:06 301872                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/DelayUGens.so
+7f89eca50000-7f89eca51000 r--p 0002e000 08:06 301872                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/DelayUGens.so
+7f89eca51000-7f89eca52000 rw-p 0002f000 08:06 301872                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/DelayUGens.so
+7f89eca52000-7f89ecb14000 r-xp 00000000 08:06 299988                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/StkUGens.so
+7f89ecb14000-7f89ecd13000 ---p 000c2000 08:06 299988                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/StkUGens.so
+7f89ecd13000-7f89ecd17000 r--p 000c1000 08:06 299988                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/StkUGens.so
+7f89ecd17000-7f89ecd1c000 rw-p 000c5000 08:06 299988                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/StkUGens.so
+7f89ecd1c000-7f89ecd24000 r-xp 00000000 08:06 301889                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/PanUGens.so
+7f89ecd24000-7f89ecf23000 ---p 00008000 08:06 301889                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/PanUGens.so
+7f89ecf23000-7f89ecf24000 r--p 00007000 08:06 301889                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/PanUGens.so
+7f89ecf24000-7f89ecf25000 rw-p 00008000 08:06 301889                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/PanUGens.so
+7f89ecf25000-7f89ecf28000 r-xp 00000000 08:06 299989                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/SummerUGens.so
+7f89ecf28000-7f89ed128000 ---p 00003000 08:06 299989                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/SummerUGens.so
+7f89ed128000-7f89ed129000 r--p 00003000 08:06 299989                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/SummerUGens.so
+7f89ed129000-7f89ed12a000 rw-p 00004000 08:06 299989                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/SummerUGens.so
+7f89ed12a000-7f89ed12d000 r-xp 00000000 08:06 298372                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDFilterUGens.so
+7f89ed12d000-7f89ed32c000 ---p 00003000 08:06 298372                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDFilterUGens.so
+7f89ed32c000-7f89ed32d000 r--p 00002000 08:06 298372                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDFilterUGens.so
+7f89ed32d000-7f89ed32e000 rw-p 00003000 08:06 298372                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDFilterUGens.so
+7f89ed32e000-7f89ed332000 r-xp 00000000 08:06 298367                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDBufferUGens.so
+7f89ed332000-7f89ed531000 ---p 00004000 08:06 298367                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDBufferUGens.so
+7f89ed531000-7f89ed532000 r--p 00003000 08:06 298367                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDBufferUGens.so
+7f89ed532000-7f89ed533000 rw-p 00004000 08:06 298367                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDBufferUGens.so
+7f89ed533000-7f89ed53a000 r-xp 00000000 08:06 301871                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/ChaosUGens.so
+7f89ed53a000-7f89ed739000 ---p 00007000 08:06 301871                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/ChaosUGens.so
+7f89ed739000-7f89ed73a000 r--p 00006000 08:06 301871                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/ChaosUGens.so
+7f89ed73a000-7f89ed73b000 rw-p 00007000 08:06 301871                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/ChaosUGens.so
+7f89ed73b000-7f89ed74d000 r-xp 00000000 08:06 298350                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BerlachUGens.so
+7f89ed74d000-7f89ed94c000 ---p 00012000 08:06 298350                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BerlachUGens.so
+7f89ed94c000-7f89ed94d000 r--p 00011000 08:06 298350                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BerlachUGens.so
+7f89ed94d000-7f89ed94e000 rw-p 00012000 08:06 298350                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BerlachUGens.so
+7f89ed94e000-7f89ed951000 r-xp 00000000 08:06 298368                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDCepstrumUGens.so
+7f89ed951000-7f89edb50000 ---p 00003000 08:06 298368                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDCepstrumUGens.so
+7f89edb50000-7f89edb51000 r--p 00002000 08:06 298368                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDCepstrumUGens.so
+7f89edb51000-7f89edb52000 rw-p 00003000 08:06 298368                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDCepstrumUGens.so
+7f89edb52000-7f89edb5e000 rw-p 00000000 00:00 0 
+7f89edb5e000-7f89edb61000 r-xp 00000000 08:06 298360                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/GlitchUGens.so
+7f89edb61000-7f89edd60000 ---p 00003000 08:06 298360                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/GlitchUGens.so
+7f89edd60000-7f89edd61000 r--p 00002000 08:06 298360                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/GlitchUGens.so
+7f89edd61000-7f89edd62000 rw-p 00003000 08:06 298360                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/GlitchUGens.so
+7f89edd62000-7f89edd6c000 r-xp 00000000 08:06 301884                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/ML_UGens.so
+7f89edd6c000-7f89edf6b000 ---p 0000a000 08:06 301884                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/ML_UGens.so
+7f89edf6b000-7f89edf6c000 r--p 00009000 08:06 301884                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/ML_UGens.so
+7f89edf6c000-7f89edf74000 rw-p 0000a000 08:06 301884                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/ML_UGens.so
+7f89edf74000-7f89edfb0000 rw-p 00000000 00:00 0 
+7f89edfb0000-7f89edfb1000 ---p 00000000 00:00 0 
+7f89edfb1000-7f89ee7b1000 rw-p 00000000 00:00 0 
+7f89ee7b1000-7f89ee7b2000 r-xp 00000000 08:06 301881                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/KeyboardUGens.so
+7f89ee7b2000-7f89ee9b2000 ---p 00001000 08:06 301881                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/KeyboardUGens.so
+7f89ee9b2000-7f89ee9b3000 r--p 00001000 08:06 301881                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/KeyboardUGens.so
+7f89ee9b3000-7f89ee9b4000 rw-p 00002000 08:06 301881                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/KeyboardUGens.so
+7f89ee9b4000-7f89ee9b6000 r-xp 00000000 08:06 298347                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BatPVUgens.so
+7f89ee9b6000-7f89eebb5000 ---p 00002000 08:06 298347                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BatPVUgens.so
+7f89eebb5000-7f89eebb6000 r--p 00001000 08:06 298347                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BatPVUgens.so
+7f89eebb6000-7f89eebb7000 rw-p 00002000 08:06 298347                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BatPVUgens.so
+7f89eebb7000-7f89eebc3000 rw-p 00000000 00:00 0 
+7f89eebc3000-7f89eebd5000 r-xp 00000000 08:06 301882                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/LFUGens.so
+7f89eebd5000-7f89eedd5000 ---p 00012000 08:06 301882                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/LFUGens.so
+7f89eedd5000-7f89eedd6000 r--p 00012000 08:06 301882                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/LFUGens.so
+7f89eedd6000-7f89eedd7000 rw-p 00013000 08:06 301882                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/LFUGens.so
+7f89eedd7000-7f89eeddb000 r-xp 00000000 08:06 298376                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDSOMUGens.so
+7f89eeddb000-7f89eefda000 ---p 00004000 08:06 298376                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDSOMUGens.so
+7f89eefda000-7f89eefdb000 r--p 00003000 08:06 298376                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDSOMUGens.so
+7f89eefdb000-7f89eefdc000 rw-p 00004000 08:06 298376                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/MCLDSOMUGens.so
+7f89eefdc000-7f89eefe2000 r-xp 00000000 08:06 301887                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/NoiseUGens.so
+7f89eefe2000-7f89ef1e1000 ---p 00006000 08:06 301887                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/NoiseUGens.so
+7f89ef1e1000-7f89ef1e2000 r--p 00005000 08:06 301887                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/NoiseUGens.so
+7f89ef1e2000-7f89ef1e3000 rw-p 00006000 08:06 301887                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/NoiseUGens.so
+7f89ef1e3000-7f89ef1ee000 r-xp 00000000 08:06 298352                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BhobChaos.so
+7f89ef1ee000-7f89ef3ed000 ---p 0000b000 08:06 298352                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BhobChaos.so
+7f89ef3ed000-7f89ef3ee000 r--p 0000a000 08:06 298352                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BhobChaos.so
+7f89ef3ee000-7f89ef3ef000 rw-p 0000b000 08:06 298352                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BhobChaos.so
+7f89ef3ef000-7f89ef3f6000 r-xp 00000000 08:06 298351                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BetablockerUGens.so
+7f89ef3f6000-7f89ef5f5000 ---p 00007000 08:06 298351                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BetablockerUGens.so
+7f89ef5f5000-7f89ef5f6000 r--p 00006000 08:06 298351                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BetablockerUGens.so
+7f89ef5f6000-7f89ef5f7000 rw-p 00007000 08:06 298351                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/BetablockerUGens.so
+7f89ef5f7000-7f89ef5fa000 r-xp 00000000 08:06 301875                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/DynNoiseUGens.so
+7f89ef5fa000-7f89ef7f9000 ---p 00003000 08:06 301875                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/DynNoiseUGens.so
+7f89ef7f9000-7f89ef7fa000 r--p 00002000 08:06 301875                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/DynNoiseUGens.so
+7f89ef7fa000-7f89ef7fb000 rw-p 00003000 08:06 301875                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/DynNoiseUGens.so
+7f89ef7fb000-7f89ef809000 r-xp 00000000 08:06 299987                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/SLUGens.so
+7f89ef809000-7f89efa08000 ---p 0000e000 08:06 299987                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/SLUGens.so
+7f89efa08000-7f89efa09000 r--p 0000d000 08:06 299987                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/SLUGens.so
+7f89efa09000-7f89efa0a000 rw-p 0000e000 08:06 299987                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/SLUGens.so
+7f89efa0a000-7f89efa0c000 r-xp 00000000 08:06 298365                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/LadspaUGen.so
+7f89efa0c000-7f89efc0c000 ---p 00002000 08:06 298365                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/LadspaUGen.so
+7f89efc0c000-7f89efc0d000 r--p 00002000 08:06 298365                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/LadspaUGen.so
+7f89efc0d000-7f89efc0e000 rw-p 00003000 08:06 298365                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/LadspaUGen.so
+7f89efc0e000-7f89efc11000 ---p 00000000 00:00 0 
+7f89efc11000-7f89efd0f000 rw-p 00000000 00:00 0 
+7f89efd0f000-7f89efd18000 r-xp 00000000 08:06 1182427                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libmanagement.so
+7f89efd18000-7f89eff17000 ---p 00009000 08:06 1182427                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libmanagement.so
+7f89eff17000-7f89eff18000 r--p 00008000 08:06 1182427                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libmanagement.so
+7f89eff18000-7f89eff19000 rw-p 00009000 08:06 1182427                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libmanagement.so
+7f89eff19000-7f89eff30000 r-xp 00000000 08:06 395730                     /lib/x86_64-linux-gnu/libresolv-2.23.so
+7f89eff30000-7f89f0130000 ---p 00017000 08:06 395730                     /lib/x86_64-linux-gnu/libresolv-2.23.so
+7f89f0130000-7f89f0131000 r--p 00017000 08:06 395730                     /lib/x86_64-linux-gnu/libresolv-2.23.so
+7f89f0131000-7f89f0132000 rw-p 00018000 08:06 395730                     /lib/x86_64-linux-gnu/libresolv-2.23.so
+7f89f0132000-7f89f0134000 rw-p 00000000 00:00 0 
+7f89f0134000-7f89f0139000 r-xp 00000000 08:06 1185901                    /usr/lib/x86_64-linux-gnu/libasyncns.so.0.3.1
+7f89f0139000-7f89f0338000 ---p 00005000 08:06 1185901                    /usr/lib/x86_64-linux-gnu/libasyncns.so.0.3.1
+7f89f0338000-7f89f0339000 r--p 00004000 08:06 1185901                    /usr/lib/x86_64-linux-gnu/libasyncns.so.0.3.1
+7f89f0339000-7f89f033a000 rw-p 00005000 08:06 1185901                    /usr/lib/x86_64-linux-gnu/libasyncns.so.0.3.1
+7f89f033a000-7f89f0342000 r-xp 00000000 08:06 397218                     /lib/x86_64-linux-gnu/libwrap.so.0.7.6
+7f89f0342000-7f89f0541000 ---p 00008000 08:06 397218                     /lib/x86_64-linux-gnu/libwrap.so.0.7.6
+7f89f0541000-7f89f0542000 r--p 00007000 08:06 397218                     /lib/x86_64-linux-gnu/libwrap.so.0.7.6
+7f89f0542000-7f89f0543000 rw-p 00008000 08:06 397218                     /lib/x86_64-linux-gnu/libwrap.so.0.7.6
+7f89f0543000-7f89f0544000 rw-p 00000000 00:00 0 
+7f89f0544000-7f89f05be000 r-xp 00000000 08:06 1437667                    /usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-8.0.so
+7f89f05be000-7f89f07bd000 ---p 0007a000 08:06 1437667                    /usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-8.0.so
+7f89f07bd000-7f89f07be000 r--p 00079000 08:06 1437667                    /usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-8.0.so
+7f89f07be000-7f89f07bf000 rw-p 0007a000 08:06 1437667                    /usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-8.0.so
+7f89f07bf000-7f89f07c9000 r-xp 00000000 08:06 397091                     /lib/x86_64-linux-gnu/libjson-c.so.2.0.0
+7f89f07c9000-7f89f09c8000 ---p 0000a000 08:06 397091                     /lib/x86_64-linux-gnu/libjson-c.so.2.0.0
+7f89f09c8000-7f89f09c9000 r--p 00009000 08:06 397091                     /lib/x86_64-linux-gnu/libjson-c.so.2.0.0
+7f89f09c9000-7f89f09ca000 rw-p 0000a000 08:06 397091                     /lib/x86_64-linux-gnu/libjson-c.so.2.0.0
+7f89f09ca000-7f89f0a18000 r-xp 00000000 08:06 1180281                    /usr/lib/x86_64-linux-gnu/libpulse.so.0.19.0
+7f89f0a18000-7f89f0c18000 ---p 0004e000 08:06 1180281                    /usr/lib/x86_64-linux-gnu/libpulse.so.0.19.0
+7f89f0c18000-7f89f0c19000 r--p 0004e000 08:06 1180281                    /usr/lib/x86_64-linux-gnu/libpulse.so.0.19.0
+7f89f0c19000-7f89f0c1a000 rw-p 0004f000 08:06 1180281                    /usr/lib/x86_64-linux-gnu/libpulse.so.0.19.0
+7f89f0c1c000-7f89f0d1c000 rw-p 00000000 00:00 0 
+7f89f0d1c000-7f89f0e1c000 ---p 00000000 00:00 0 
+7f89f0e1c000-7f89f0f15000 r-xp 00000000 08:06 1185891                    /usr/lib/x86_64-linux-gnu/libasound.so.2.0.0
+7f89f0f15000-7f89f1114000 ---p 000f9000 08:06 1185891                    /usr/lib/x86_64-linux-gnu/libasound.so.2.0.0
+7f89f1114000-7f89f111b000 r--p 000f8000 08:06 1185891                    /usr/lib/x86_64-linux-gnu/libasound.so.2.0.0
+7f89f111b000-7f89f111c000 rw-p 000ff000 08:06 1185891                    /usr/lib/x86_64-linux-gnu/libasound.so.2.0.0
+7f89f111c000-7f89f112b000 r-xp 00000000 08:06 1182285                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjsoundalsa.so
+7f89f112b000-7f89f132a000 ---p 0000f000 08:06 1182285                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjsoundalsa.so
+7f89f132a000-7f89f132b000 r--p 0000e000 08:06 1182285                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjsoundalsa.so
+7f89f132b000-7f89f132c000 rw-p 0000f000 08:06 1182285                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjsoundalsa.so
+7f89f132c000-7f89f132d000 r-xp 00000000 08:06 1182420                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjsound.so
+7f89f132d000-7f89f152c000 ---p 00001000 08:06 1182420                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjsound.so
+7f89f152c000-7f89f152d000 r--p 00000000 08:06 1182420                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjsound.so
+7f89f152d000-7f89f152e000 rw-p 00001000 08:06 1182420                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjsound.so
+7f89f152e000-7f89f172e000 rw-p 00000000 00:00 0 
+7f89f172e000-7f89f192e000 rw-p 00000000 00:00 0 
+7f89f192e000-7f89f1b2e000 rw-p 00000000 00:00 0 
+7f89f1b2e000-7f89f1d2e000 rw-p 00000000 00:00 0 
+7f89f1d2e000-7f89f1d31000 ---p 00000000 00:00 0 
+7f89f1d31000-7f89f1e2f000 rw-p 00000000 00:00 0 
+7f89f1e2f000-7f89f1e32000 ---p 00000000 00:00 0 
+7f89f1e32000-7f89f1f30000 rw-p 00000000 00:00 0 
+7f89f1f30000-7f89f1f33000 ---p 00000000 00:00 0 
+7f89f1f33000-7f89f2031000 rw-p 00000000 00:00 0 
+7f89f2031000-7f89f2034000 ---p 00000000 00:00 0 
+7f89f2034000-7f89f2332000 rw-p 00000000 00:00 0 
+7f89f2332000-7f89f2532000 rw-p 00000000 00:00 0 
+7f89f2532000-7f89f2535000 ---p 00000000 00:00 0 
+7f89f2535000-7f89f2833000 rw-p 00000000 00:00 0 
+7f89f2833000-7f89f2845000 r-xp 00000000 08:06 397076                     /lib/x86_64-linux-gnu/libgpg-error.so.0.17.0
+7f89f2845000-7f89f2a45000 ---p 00012000 08:06 397076                     /lib/x86_64-linux-gnu/libgpg-error.so.0.17.0
+7f89f2a45000-7f89f2a46000 r--p 00012000 08:06 397076                     /lib/x86_64-linux-gnu/libgpg-error.so.0.17.0
+7f89f2a46000-7f89f2a47000 rw-p 00013000 08:06 397076                     /lib/x86_64-linux-gnu/libgpg-error.so.0.17.0
+7f89f2a47000-7f89f2ab5000 r-xp 00000000 08:06 397161                     /lib/x86_64-linux-gnu/libpcre.so.3.13.2
+7f89f2ab5000-7f89f2cb5000 ---p 0006e000 08:06 397161                     /lib/x86_64-linux-gnu/libpcre.so.3.13.2
+7f89f2cb5000-7f89f2cb6000 r--p 0006e000 08:06 397161                     /lib/x86_64-linux-gnu/libpcre.so.3.13.2
+7f89f2cb6000-7f89f2cb7000 rw-p 0006f000 08:06 397161                     /lib/x86_64-linux-gnu/libpcre.so.3.13.2
+7f89f2cb7000-7f89f2d8f000 r-xp 00000000 08:06 394960                     /lib/x86_64-linux-gnu/libgcrypt.so.20.0.5
+7f89f2d8f000-7f89f2f8e000 ---p 000d8000 08:06 394960                     /lib/x86_64-linux-gnu/libgcrypt.so.20.0.5
+7f89f2f8e000-7f89f2f8f000 r--p 000d7000 08:06 394960                     /lib/x86_64-linux-gnu/libgcrypt.so.20.0.5
+7f89f2f8f000-7f89f2f97000 rw-p 000d8000 08:06 394960                     /lib/x86_64-linux-gnu/libgcrypt.so.20.0.5
+7f89f2f97000-7f89f2f98000 rw-p 00000000 00:00 0 
+7f89f2f98000-7f89f2fb9000 r-xp 00000000 08:06 397099                     /lib/x86_64-linux-gnu/liblzma.so.5.0.0
+7f89f2fb9000-7f89f31b8000 ---p 00021000 08:06 397099                     /lib/x86_64-linux-gnu/liblzma.so.5.0.0
+7f89f31b8000-7f89f31b9000 r--p 00020000 08:06 397099                     /lib/x86_64-linux-gnu/liblzma.so.5.0.0
+7f89f31b9000-7f89f31ba000 rw-p 00021000 08:06 397099                     /lib/x86_64-linux-gnu/liblzma.so.5.0.0
+7f89f31ba000-7f89f31d9000 r-xp 00000000 08:06 397190                     /lib/x86_64-linux-gnu/libselinux.so.1
+7f89f31d9000-7f89f33d8000 ---p 0001f000 08:06 397190                     /lib/x86_64-linux-gnu/libselinux.so.1
+7f89f33d8000-7f89f33d9000 r--p 0001e000 08:06 397190                     /lib/x86_64-linux-gnu/libselinux.so.1
+7f89f33d9000-7f89f33da000 rw-p 0001f000 08:06 397190                     /lib/x86_64-linux-gnu/libselinux.so.1
+7f89f33da000-7f89f33dc000 rw-p 00000000 00:00 0 
+7f89f33dc000-7f89f3406000 r-xp 00000000 08:06 1187054                    /usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.8
+7f89f3406000-7f89f3606000 ---p 0002a000 08:06 1187054                    /usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.8
+7f89f3606000-7f89f3607000 r--p 0002a000 08:06 1187054                    /usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.8
+7f89f3607000-7f89f3608000 rw-p 0002b000 08:06 1187054                    /usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.8
+7f89f3608000-7f89f360f000 r-xp 00000000 08:06 1186706                    /usr/lib/x86_64-linux-gnu/libogg.so.0.8.2
+7f89f360f000-7f89f380f000 ---p 00007000 08:06 1186706                    /usr/lib/x86_64-linux-gnu/libogg.so.0.8.2
+7f89f380f000-7f89f3810000 r--p 00007000 08:06 1186706                    /usr/lib/x86_64-linux-gnu/libogg.so.0.8.2
+7f89f3810000-7f89f3811000 rw-p 00008000 08:06 1186706                    /usr/lib/x86_64-linux-gnu/libogg.so.0.8.2
+7f89f3811000-7f89f3891000 r-xp 00000000 08:06 401283                     /lib/x86_64-linux-gnu/libsystemd.so.0.14.0
+7f89f3891000-7f89f3894000 r--p 0007f000 08:06 401283                     /lib/x86_64-linux-gnu/libsystemd.so.0.14.0
+7f89f3894000-7f89f3895000 rw-p 00082000 08:06 401283                     /lib/x86_64-linux-gnu/libsystemd.so.0.14.0
+7f89f3895000-7f89f3896000 rw-p 00000000 00:00 0 
+7f89f3896000-7f89f3923000 r-xp 00000000 08:06 1187056                    /usr/lib/x86_64-linux-gnu/libvorbisenc.so.2.0.11
+7f89f3923000-7f89f3b22000 ---p 0008d000 08:06 1187056                    /usr/lib/x86_64-linux-gnu/libvorbisenc.so.2.0.11
+7f89f3b22000-7f89f3b3e000 r--p 0008c000 08:06 1187056                    /usr/lib/x86_64-linux-gnu/libvorbisenc.so.2.0.11
+7f89f3b3e000-7f89f3b3f000 rw-p 000a8000 08:06 1187056                    /usr/lib/x86_64-linux-gnu/libvorbisenc.so.2.0.11
+7f89f3b3f000-7f89f3bb2000 r-xp 00000000 08:06 1185651                    /usr/lib/x86_64-linux-gnu/libFLAC.so.8.3.0
+7f89f3bb2000-7f89f3db2000 ---p 00073000 08:06 1185651                    /usr/lib/x86_64-linux-gnu/libFLAC.so.8.3.0
+7f89f3db2000-7f89f3db3000 r--p 00073000 08:06 1185651                    /usr/lib/x86_64-linux-gnu/libFLAC.so.8.3.0
+7f89f3db3000-7f89f3db4000 rw-p 00074000 08:06 1185651                    /usr/lib/x86_64-linux-gnu/libFLAC.so.8.3.0
+7f89f3db4000-7f89f3dfe000 r-xp 00000000 08:06 396591                     /lib/x86_64-linux-gnu/libdbus-1.so.3.14.6
+7f89f3dfe000-7f89f3ffe000 ---p 0004a000 08:06 396591                     /lib/x86_64-linux-gnu/libdbus-1.so.3.14.6
+7f89f3ffe000-7f89f3fff000 r--p 0004a000 08:06 396591                     /lib/x86_64-linux-gnu/libdbus-1.so.3.14.6
+7f89f3fff000-7f89f4000000 rw-p 0004b000 08:06 396591                     /lib/x86_64-linux-gnu/libdbus-1.so.3.14.6
+7f89f4000000-7f89f4021000 rw-p 00000000 00:00 0 
+7f89f4021000-7f89f8000000 ---p 00000000 00:00 0 
+7f89f805f000-7f89f8256000 r-xp 00000000 08:06 1186190                    /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.4.4
+7f89f8256000-7f89f8455000 ---p 001f7000 08:06 1186190                    /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.4.4
+7f89f8455000-7f89f8469000 r--p 001f6000 08:06 1186190                    /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.4.4
+7f89f8469000-7f89f846a000 rw-p 0020a000 08:06 1186190                    /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.4.4
+7f89f846a000-7f89f84b0000 r-xp 00000000 08:06 1186522                    /usr/lib/x86_64-linux-gnu/libjack.so.0.1.0
+7f89f84b0000-7f89f86b0000 ---p 00046000 08:06 1186522                    /usr/lib/x86_64-linux-gnu/libjack.so.0.1.0
+7f89f86b0000-7f89f86b2000 r--p 00046000 08:06 1186522                    /usr/lib/x86_64-linux-gnu/libjack.so.0.1.0
+7f89f86b2000-7f89f86b3000 rw-p 00048000 08:06 1186522                    /usr/lib/x86_64-linux-gnu/libjack.so.0.1.0
+7f89f86b3000-7f89f8715000 r-xp 00000000 08:06 1176375                    /usr/lib/x86_64-linux-gnu/libsndfile.so.1.0.25
+7f89f8715000-7f89f8915000 ---p 00062000 08:06 1176375                    /usr/lib/x86_64-linux-gnu/libsndfile.so.1.0.25
+7f89f8915000-7f89f8917000 r--p 00062000 08:06 1176375                    /usr/lib/x86_64-linux-gnu/libsndfile.so.1.0.25
+7f89f8917000-7f89f8918000 rw-p 00064000 08:06 1176375                    /usr/lib/x86_64-linux-gnu/libsndfile.so.1.0.25
+7f89f8918000-7f89f891c000 rw-p 00000000 00:00 0 
+7f89f891c000-7f89f892c000 r-xp 00000000 08:06 1185915                    /usr/lib/x86_64-linux-gnu/libavahi-client.so.3.2.9
+7f89f892c000-7f89f8b2b000 ---p 00010000 08:06 1185915                    /usr/lib/x86_64-linux-gnu/libavahi-client.so.3.2.9
+7f89f8b2b000-7f89f8b2c000 r--p 0000f000 08:06 1185915                    /usr/lib/x86_64-linux-gnu/libavahi-client.so.3.2.9
+7f89f8b2c000-7f89f8b2d000 rw-p 00010000 08:06 1185915                    /usr/lib/x86_64-linux-gnu/libavahi-client.so.3.2.9
+7f89f8b2d000-7f89f8b38000 r-xp 00000000 08:06 1185917                    /usr/lib/x86_64-linux-gnu/libavahi-common.so.3.5.3
+7f89f8b38000-7f89f8d37000 ---p 0000b000 08:06 1185917                    /usr/lib/x86_64-linux-gnu/libavahi-common.so.3.5.3
+7f89f8d37000-7f89f8d38000 r--p 0000a000 08:06 1185917                    /usr/lib/x86_64-linux-gnu/libavahi-common.so.3.5.3
+7f89f8d38000-7f89f8d39000 rw-p 0000b000 08:06 1185917                    /usr/lib/x86_64-linux-gnu/libavahi-common.so.3.5.3
+7f89f8d39000-7f89f8d9b000 r-xp 00000000 08:06 301883                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/libscsynth.so
+7f89f8d9b000-7f89f8f9b000 ---p 00062000 08:06 301883                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/libscsynth.so
+7f89f8f9b000-7f89f8f9d000 r--p 00062000 08:06 301883                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/libscsynth.so
+7f89f8f9d000-7f89f8f9f000 rw-p 00064000 08:06 301883                     /home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64/libscsynth.so
+7f89f8f9f000-7f89f8fbf000 rw-p 00000000 00:00 0 
+7f89f8fbf000-7f89f8fd6000 r-xp 00000000 08:06 542804                     /tmp/jna/jna9130018609428910999.tmp (deleted)
+7f89f8fd6000-7f89f91d5000 ---p 00017000 08:06 542804                     /tmp/jna/jna9130018609428910999.tmp (deleted)
+7f89f91d5000-7f89f91d6000 r--p 00016000 08:06 542804                     /tmp/jna/jna9130018609428910999.tmp (deleted)
+7f89f91d6000-7f89f91d7000 rw-p 00017000 08:06 542804                     /tmp/jna/jna9130018609428910999.tmp (deleted)
+7f89f91d7000-7f89f93d7000 rw-p 00000000 00:00 0 
+7f89f93d7000-7f89f93e8000 r-xp 00000000 08:06 1182413                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libnio.so
+7f89f93e8000-7f89f95e8000 ---p 00011000 08:06 1182413                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libnio.so
+7f89f95e8000-7f89f95e9000 r--p 00011000 08:06 1182413                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libnio.so
+7f89f95e9000-7f89f95ea000 rw-p 00012000 08:06 1182413                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libnio.so
+7f89f95ea000-7f89f97ea000 rw-p 00000000 00:00 0 
+7f89f97ea000-7f89f99ea000 rw-p 00000000 00:00 0 
+7f89f99ea000-7f89f99ef000 r-xp 00000000 08:06 1185814                    /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+7f89f99ef000-7f89f9bee000 ---p 00005000 08:06 1185814                    /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+7f89f9bee000-7f89f9bef000 r--p 00004000 08:06 1185814                    /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+7f89f9bef000-7f89f9bf0000 rw-p 00005000 08:06 1185814                    /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+7f89f9bf0000-7f89f9bf9000 r-xp 00000000 08:06 1185806                    /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+7f89f9bf9000-7f89f9df8000 ---p 00009000 08:06 1185806                    /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+7f89f9df8000-7f89f9df9000 r--p 00008000 08:06 1185806                    /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+7f89f9df9000-7f89f9dfa000 rw-p 00009000 08:06 1185806                    /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+7f89f9dfa000-7f89f9e1e000 r-xp 00000000 08:06 397173                     /lib/x86_64-linux-gnu/libpng12.so.0.54.0
+7f89f9e1e000-7f89fa01d000 ---p 00024000 08:06 397173                     /lib/x86_64-linux-gnu/libpng12.so.0.54.0
+7f89fa01d000-7f89fa01e000 r--p 00023000 08:06 397173                     /lib/x86_64-linux-gnu/libpng12.so.0.54.0
+7f89fa01e000-7f89fa01f000 rw-p 00024000 08:06 397173                     /lib/x86_64-linux-gnu/libpng12.so.0.54.0
+7f89fa01f000-7f89fa0c3000 r-xp 00000000 08:06 1178687                    /usr/lib/x86_64-linux-gnu/libfreetype.so.6.12.1
+7f89fa0c3000-7f89fa2c2000 ---p 000a4000 08:06 1178687                    /usr/lib/x86_64-linux-gnu/libfreetype.so.6.12.1
+7f89fa2c2000-7f89fa2c8000 r--p 000a3000 08:06 1178687                    /usr/lib/x86_64-linux-gnu/libfreetype.so.6.12.1
+7f89fa2c8000-7f89fa2c9000 rw-p 000a9000 08:06 1178687                    /usr/lib/x86_64-linux-gnu/libfreetype.so.6.12.1
+7f89fa2e7000-7f89fa339000 r-xp 00000000 08:06 1182408                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libfontmanager.so
+7f89fa339000-7f89fa539000 ---p 00052000 08:06 1182408                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libfontmanager.so
+7f89fa539000-7f89fa53b000 r--p 00052000 08:06 1182408                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libfontmanager.so
+7f89fa53b000-7f89fa53c000 rw-p 00054000 08:06 1182408                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libfontmanager.so
+7f89fa53c000-7f89fa541000 r-xp 00000000 08:06 1185810                    /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7f89fa541000-7f89fa740000 ---p 00005000 08:06 1185810                    /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7f89fa740000-7f89fa741000 r--p 00004000 08:06 1185810                    /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7f89fa741000-7f89fa742000 rw-p 00005000 08:06 1185810                    /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7f89fa742000-7f89fa744000 r-xp 00000000 08:06 1185799                    /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7f89fa744000-7f89fa944000 ---p 00002000 08:06 1185799                    /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7f89fa944000-7f89fa945000 r--p 00002000 08:06 1185799                    /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7f89fa945000-7f89fa946000 rw-p 00003000 08:06 1185799                    /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7f89fa946000-7f89fa967000 r-xp 00000000 08:06 1187177                    /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7f89fa967000-7f89fab66000 ---p 00021000 08:06 1187177                    /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7f89fab66000-7f89fab67000 r--p 00020000 08:06 1187177                    /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7f89fab67000-7f89fab68000 rw-p 00021000 08:06 1187177                    /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7f89fab68000-7f89fab77000 r-xp 00000000 08:06 1185820                    /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7f89fab77000-7f89fad76000 ---p 0000f000 08:06 1185820                    /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7f89fad76000-7f89fad77000 r--p 0000e000 08:06 1185820                    /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7f89fad77000-7f89fad78000 rw-p 0000f000 08:06 1185820                    /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7f89fad78000-7f89fad7d000 r-xp 00000000 08:06 1185838                    /usr/lib/x86_64-linux-gnu/libXtst.so.6.1.0
+7f89fad7d000-7f89faf7c000 ---p 00005000 08:06 1185838                    /usr/lib/x86_64-linux-gnu/libXtst.so.6.1.0
+7f89faf7c000-7f89faf7d000 r--p 00004000 08:06 1185838                    /usr/lib/x86_64-linux-gnu/libXtst.so.6.1.0
+7f89faf7d000-7f89faf7e000 rw-p 00005000 08:06 1185838                    /usr/lib/x86_64-linux-gnu/libXtst.so.6.1.0
+7f89faf7e000-7f89faf87000 r-xp 00000000 08:06 1185832                    /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7f89faf87000-7f89fb186000 ---p 00009000 08:06 1185832                    /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7f89fb186000-7f89fb187000 r--p 00008000 08:06 1185832                    /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7f89fb187000-7f89fb188000 rw-p 00009000 08:06 1185832                    /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7f89fb188000-7f89fb2bd000 r-xp 00000000 08:06 1185795                    /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0
+7f89fb2bd000-7f89fb4bd000 ---p 00135000 08:06 1185795                    /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0
+7f89fb4bd000-7f89fb4be000 r--p 00135000 08:06 1185795                    /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0
+7f89fb4be000-7f89fb4c2000 rw-p 00136000 08:06 1185795                    /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0
+7f89fb4c2000-7f89fb4d3000 r-xp 00000000 08:06 1185812                    /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7f89fb4d3000-7f89fb6d2000 ---p 00011000 08:06 1185812                    /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7f89fb6d2000-7f89fb6d3000 r--p 00010000 08:06 1185812                    /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7f89fb6d3000-7f89fb6d4000 rw-p 00011000 08:06 1185812                    /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7f89fb6d4000-7f89fb728000 r-xp 00000000 08:06 1182440                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libawt_xawt.so
+7f89fb728000-7f89fb928000 ---p 00054000 08:06 1182440                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libawt_xawt.so
+7f89fb928000-7f89fb929000 r--p 00054000 08:06 1182440                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libawt_xawt.so
+7f89fb929000-7f89fb92c000 rw-p 00055000 08:06 1182440                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libawt_xawt.so
+7f89fb92c000-7f89fbb2d000 rw-p 00000000 00:00 0 
+7f89fbb2d000-7f89fbbcd000 r-xp 00000000 08:06 1182434                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libawt.so
+7f89fbbcd000-7f89fbdcd000 ---p 000a0000 08:06 1182434                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libawt.so
+7f89fbdcd000-7f89fbdce000 r--p 000a0000 08:06 1182434                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libawt.so
+7f89fbdce000-7f89fbdd9000 rw-p 000a1000 08:06 1182434                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libawt.so
+7f89fbdd9000-7f89fbdfe000 rw-p 00000000 00:00 0 
+7f89fbdfe000-7f89fbe01000 ---p 00000000 00:00 0 
+7f89fbe01000-7f89fbeff000 rw-p 00000000 00:00 0 
+7f89fbeff000-7f89fbf02000 ---p 00000000 00:00 0 
+7f89fbf02000-7f89fc000000 rw-p 00000000 00:00 0 
+7f89fc000000-7f89fc936000 rw-p 00000000 00:00 0 
+7f89fc936000-7f8a00000000 ---p 00000000 00:00 0 
+7f8a00000000-7f8a00021000 rw-p 00000000 00:00 0 
+7f8a00021000-7f8a04000000 ---p 00000000 00:00 0 
+7f8a04000000-7f8a04021000 rw-p 00000000 00:00 0 
+7f8a04021000-7f8a08000000 ---p 00000000 00:00 0 
+7f8a08000000-7f8a08065000 rw-p 00000000 00:00 0 
+7f8a08065000-7f8a0c000000 ---p 00000000 00:00 0 
+7f8a0c000000-7f8a0c557000 rw-p 00000000 00:00 0 
+7f8a0c557000-7f8a10000000 ---p 00000000 00:00 0 
+7f8a10000000-7f8a10021000 rw-p 00000000 00:00 0 
+7f8a10021000-7f8a14000000 ---p 00000000 00:00 0 
+7f8a14000000-7f8a14021000 rw-p 00000000 00:00 0 
+7f8a14021000-7f8a18000000 ---p 00000000 00:00 0 
+7f8a18000000-7f8a1804e000 rw-p 00000000 00:00 0 
+7f8a1804e000-7f8a1c000000 ---p 00000000 00:00 0 
+7f8a1c000000-7f8a1c021000 rw-p 00000000 00:00 0 
+7f8a1c021000-7f8a20000000 ---p 00000000 00:00 0 
+7f8a20000000-7f8a20021000 rw-p 00000000 00:00 0 
+7f8a20021000-7f8a24000000 ---p 00000000 00:00 0 
+7f8a24000000-7f8a24039000 rw-p 00000000 00:00 0 
+7f8a24039000-7f8a28000000 ---p 00000000 00:00 0 
+7f8a28000000-7f8a28021000 rw-p 00000000 00:00 0 
+7f8a28021000-7f8a2c000000 ---p 00000000 00:00 0 
+7f8a2c000000-7f8a2c021000 rw-p 00000000 00:00 0 
+7f8a2c021000-7f8a30000000 ---p 00000000 00:00 0 
+7f8a3000f000-7f8a30022000 r--s 00346000 08:06 1182449                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar
+7f8a30022000-7f8a30025000 ---p 00000000 00:00 0 
+7f8a30025000-7f8a30123000 rw-p 00000000 00:00 0 
+7f8a30123000-7f8a30126000 ---p 00000000 00:00 0 
+7f8a30126000-7f8a30224000 rw-p 00000000 00:00 0 
+7f8a30224000-7f8a30227000 ---p 00000000 00:00 0 
+7f8a30227000-7f8a30325000 rw-p 00000000 00:00 0 
+7f8a30325000-7f8a30328000 ---p 00000000 00:00 0 
+7f8a30328000-7f8a30426000 rw-p 00000000 00:00 0 
+7f8a30426000-7f8a30429000 ---p 00000000 00:00 0 
+7f8a30429000-7f8a30527000 rw-p 00000000 00:00 0 
+7f8a30527000-7f8a3052a000 ---p 00000000 00:00 0 
+7f8a3052a000-7f8a30628000 rw-p 00000000 00:00 0 
+7f8a30628000-7f8a3063f000 r-xp 00000000 08:06 1182433                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libnet.so
+7f8a3063f000-7f8a3083e000 ---p 00017000 08:06 1182433                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libnet.so
+7f8a3083e000-7f8a3083f000 r--p 00016000 08:06 1182433                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libnet.so
+7f8a3083f000-7f8a30840000 rw-p 00017000 08:06 1182433                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libnet.so
+7f8a30840000-7f8a30a40000 rw-p 00000000 00:00 0 
+7f8a30a40000-7f8a30a43000 ---p 00000000 00:00 0 
+7f8a30a43000-7f8a30b41000 rw-p 00000000 00:00 0 
+7f8a30b47000-7f8a30b4e000 r--s 00000000 08:06 1457328                    /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+7f8a30b4e000-7f8a30b4f000 rwxp 00000000 00:00 0 
+7f8a30b4f000-7f8a30b54000 r--s 0009a000 08:06 1182404                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar
+7f8a30b54000-7f8a30b57000 ---p 00000000 00:00 0 
+7f8a30b57000-7f8a30e55000 rw-p 00000000 00:00 0 
+7f8a30e55000-7f8a31055000 rw-p 00000000 00:00 0 
+7f8a31055000-7f8a31056000 r--s 00005000 08:06 810236                     /home/halvards/.m2/repository/clj-native/clj-native/0.9.3/clj-native-0.9.3.jar
+7f8a31056000-7f8a31057000 r--s 00001000 08:06 10012                      /home/halvards/.m2/repository/org/clojure/data.json/0.2.3/data.json-0.2.3.jar
+7f8a31057000-7f8a31058000 r--s 00001000 08:06 810244                     /home/halvards/.m2/repository/overtone/midi-clj/0.5.0/midi-clj-0.5.0.jar
+7f8a31058000-7f8a31059000 r--s 00000000 08:06 810251                     /home/halvards/.m2/repository/clj-glob/clj-glob/1.0.0/clj-glob-1.0.0.jar
+7f8a31059000-7f8a3105d000 r--s 0002f000 08:06 810206                     /home/halvards/.m2/repository/javax/jmdns/jmdns/3.4.1/jmdns-3.4.1.jar
+7f8a3105d000-7f8a31062000 r--s 0003d000 08:06 810207                     /home/halvards/.m2/repository/commons-net/commons-net/3.0.1/commons-net-3.0.1.jar
+7f8a31062000-7f8a31066000 r--s 00b46000 08:06 810256                     /home/halvards/.m2/repository/overtone/scsynth/3.5.7.0/scsynth-3.5.7.0.jar
+7f8a31066000-7f8a31067000 r--s 00001000 08:06 810246                     /home/halvards/.m2/repository/overtone/libs.handlers/0.2.0/libs.handlers-0.2.0.jar
+7f8a31067000-7f8a31068000 r--s 00004000 08:06 810240                     /home/halvards/.m2/repository/overtone/osc-clj/0.9.0/osc-clj-0.9.0.jar
+7f8a31068000-7f8a3106f000 r--s 0006e000 08:06 810243                     /home/halvards/.m2/repository/overtone/overtone/0.10.1/overtone-0.10.1.jar
+7f8a3106f000-7f8a31071000 r--s 00000000 08:06 810237                     /home/halvards/.m2/repository/overtone/byte-spec/0.3.1/byte-spec-0.3.1.jar
+7f8a31071000-7f8a31072000 r--s 00002000 08:06 796791                     /home/halvards/.m2/repository/clojure-complete/clojure-complete/0.2.4/clojure-complete-0.2.4.jar
+7f8a31072000-7f8a31073000 r--s 00009000 08:06 927617                     /home/halvards/.m2/repository/org/clojure/tools.nrepl/0.2.12/tools.nrepl-0.2.12.jar
+7f8a31073000-7f8a31077000 r--s 000f3000 08:06 10010                      /home/halvards/.m2/repository/net/java/dev/jna/jna/3.4.0/jna-3.4.0.jar
+7f8a31077000-7f8a3107b000 r--s 00b6f000 08:06 810255                     /home/halvards/.m2/repository/overtone/scsynth-extras/3.5.7.0/scsynth-extras-3.5.7.0.jar
+7f8a3107b000-7f8a310be000 r--s 00332000 08:06 927613                     /home/halvards/.m2/repository/org/clojure/clojure/1.8.0/clojure-1.8.0.jar
+7f8a310be000-7f8a310c8000 r--s 00116000 08:06 1178680                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/localedata.jar
+7f8a310c8000-7f8a310c9000 ---p 00000000 00:00 0 
+7f8a310c9000-7f8a311c9000 rw-p 00000000 00:00 0 
+7f8a311c9000-7f8a311cc000 ---p 00000000 00:00 0 
+7f8a311cc000-7f8a312ca000 rw-p 00000000 00:00 0 
+7f8a312ca000-7f8a312cd000 ---p 00000000 00:00 0 
+7f8a312cd000-7f8a313cb000 rw-p 00000000 00:00 0 
+7f8a313cb000-7f8a313ce000 ---p 00000000 00:00 0 
+7f8a313ce000-7f8a314cc000 rw-p 00000000 00:00 0 
+7f8a314cc000-7f8a314cf000 ---p 00000000 00:00 0 
+7f8a314cf000-7f8a315cd000 rw-p 00000000 00:00 0 
+7f8a315cd000-7f8a31a24000 r--p 00000000 08:06 1278924                    /usr/lib/locale/locale-archive
+7f8a31a24000-7f8a31a27000 ---p 00000000 00:00 0 
+7f8a31a27000-7f8a31b25000 rw-p 00000000 00:00 0 
+7f8a31b25000-7f8a31b28000 ---p 00000000 00:00 0 
+7f8a31b28000-7f8a31c26000 rw-p 00000000 00:00 0 
+7f8a31c26000-7f8a31c27000 ---p 00000000 00:00 0 
+7f8a31c27000-7f8a32630000 rw-p 00000000 00:00 0 
+7f8a32630000-7f8a327fe000 r--s 03c13000 08:06 1176334                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar
+7f8a327fe000-7f8a35000000 rw-p 00000000 00:00 0 
+7f8a35000000-7f8a35770000 rwxp 00000000 00:00 0 
+7f8a35770000-7f8a44000000 ---p 00000000 00:00 0 
+7f8a44000000-7f8a44d8b000 rw-p 00000000 00:00 0 
+7f8a44d8b000-7f8a48000000 ---p 00000000 00:00 0 
+7f8a48000000-7f8a48001000 r--s 00001000 08:06 810238                     /home/halvards/.m2/repository/overtone/at-at/1.2.0/at-at-1.2.0.jar
+7f8a48001000-7f8a48004000 r--s 0000f000 08:06 1178685                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/icedtea-sound.jar
+7f8a48004000-7f8a48006000 r--s 00008000 08:06 1178686                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/sunec.jar
+7f8a48006000-7f8a48021000 r--s 001d6000 08:06 1178679                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/nashorn.jar
+7f8a48021000-7f8a4803c000 r--s 00394000 08:06 1178678                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/cldrdata.jar
+7f8a4803c000-7f8a48040000 r--s 00037000 08:06 1178681                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/sunpkcs11.jar
+7f8a48040000-7f8a48119000 rw-p 00000000 00:00 0 
+7f8a48119000-7f8a4811a000 ---p 00000000 00:00 0 
+7f8a4811a000-7f8a4821a000 rw-p 00000000 00:00 0 
+7f8a4821a000-7f8a4821b000 ---p 00000000 00:00 0 
+7f8a4821b000-7f8a48338000 rw-p 00000000 00:00 0 
+7f8a48338000-7f8a4845d000 ---p 00000000 00:00 0 
+7f8a4845d000-7f8a4847a000 rw-p 00000000 00:00 0 
+7f8a4847a000-7f8a4859e000 ---p 00000000 00:00 0 
+7f8a4859e000-7f8a4863f000 rw-p 00000000 00:00 0 
+7f8a4863f000-7f8a4865e000 rw-p 00000000 00:00 0 
+7f8a4865e000-7f8a48a00000 ---p 00000000 00:00 0 
+7f8a48a00000-7f8a48a08000 r-xp 00000000 08:06 1182424                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libzip.so
+7f8a48a08000-7f8a48c07000 ---p 00008000 08:06 1182424                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libzip.so
+7f8a48c07000-7f8a48c08000 r--p 00007000 08:06 1182424                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libzip.so
+7f8a48c08000-7f8a48c09000 rw-p 00008000 08:06 1182424                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libzip.so
+7f8a48c09000-7f8a48c14000 r-xp 00000000 08:06 395706                     /lib/x86_64-linux-gnu/libnss_files-2.23.so
+7f8a48c14000-7f8a48e13000 ---p 0000b000 08:06 395706                     /lib/x86_64-linux-gnu/libnss_files-2.23.so
+7f8a48e13000-7f8a48e14000 r--p 0000a000 08:06 395706                     /lib/x86_64-linux-gnu/libnss_files-2.23.so
+7f8a48e14000-7f8a48e15000 rw-p 0000b000 08:06 395706                     /lib/x86_64-linux-gnu/libnss_files-2.23.so
+7f8a48e15000-7f8a48e1b000 rw-p 00000000 00:00 0 
+7f8a48e1b000-7f8a48e26000 r-xp 00000000 08:06 395716                     /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+7f8a48e26000-7f8a49025000 ---p 0000b000 08:06 395716                     /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+7f8a49025000-7f8a49026000 r--p 0000a000 08:06 395716                     /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+7f8a49026000-7f8a49027000 rw-p 0000b000 08:06 395716                     /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+7f8a49027000-7f8a4903d000 r-xp 00000000 08:06 395640                     /lib/x86_64-linux-gnu/libnsl-2.23.so
+7f8a4903d000-7f8a4923c000 ---p 00016000 08:06 395640                     /lib/x86_64-linux-gnu/libnsl-2.23.so
+7f8a4923c000-7f8a4923d000 r--p 00015000 08:06 395640                     /lib/x86_64-linux-gnu/libnsl-2.23.so
+7f8a4923d000-7f8a4923e000 rw-p 00016000 08:06 395640                     /lib/x86_64-linux-gnu/libnsl-2.23.so
+7f8a4923e000-7f8a49240000 rw-p 00000000 00:00 0 
+7f8a49240000-7f8a49248000 r-xp 00000000 08:06 395728                     /lib/x86_64-linux-gnu/libnss_compat-2.23.so
+7f8a49248000-7f8a49447000 ---p 00008000 08:06 395728                     /lib/x86_64-linux-gnu/libnss_compat-2.23.so
+7f8a49447000-7f8a49448000 r--p 00007000 08:06 395728                     /lib/x86_64-linux-gnu/libnss_compat-2.23.so
+7f8a49448000-7f8a49449000 rw-p 00008000 08:06 395728                     /lib/x86_64-linux-gnu/libnss_compat-2.23.so
+7f8a49449000-7f8a49476000 r-xp 00000000 08:06 1182439                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjava.so
+7f8a49476000-7f8a49675000 ---p 0002d000 08:06 1182439                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjava.so
+7f8a49675000-7f8a49676000 r--p 0002c000 08:06 1182439                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjava.so
+7f8a49676000-7f8a49678000 rw-p 0002d000 08:06 1182439                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjava.so
+7f8a49678000-7f8a49687000 r-xp 00000000 08:06 1182418                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libverify.so
+7f8a49687000-7f8a49886000 ---p 0000f000 08:06 1182418                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libverify.so
+7f8a49886000-7f8a49888000 r--p 0000e000 08:06 1182418                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libverify.so
+7f8a49888000-7f8a49889000 rw-p 00010000 08:06 1182418                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libverify.so
+7f8a49889000-7f8a49890000 r-xp 00000000 08:06 395722                     /lib/x86_64-linux-gnu/librt-2.23.so
+7f8a49890000-7f8a49a8f000 ---p 00007000 08:06 395722                     /lib/x86_64-linux-gnu/librt-2.23.so
+7f8a49a8f000-7f8a49a90000 r--p 00006000 08:06 395722                     /lib/x86_64-linux-gnu/librt-2.23.so
+7f8a49a90000-7f8a49a91000 rw-p 00007000 08:06 395722                     /lib/x86_64-linux-gnu/librt-2.23.so
+7f8a49a91000-7f8a49aa7000 r-xp 00000000 08:06 397070                     /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f8a49aa7000-7f8a49ca6000 ---p 00016000 08:06 397070                     /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f8a49ca6000-7f8a49ca7000 rw-p 00015000 08:06 397070                     /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f8a49ca7000-7f8a49daf000 r-xp 00000000 08:06 395734                     /lib/x86_64-linux-gnu/libm-2.23.so
+7f8a49daf000-7f8a49fae000 ---p 00108000 08:06 395734                     /lib/x86_64-linux-gnu/libm-2.23.so
+7f8a49fae000-7f8a49faf000 r--p 00107000 08:06 395734                     /lib/x86_64-linux-gnu/libm-2.23.so
+7f8a49faf000-7f8a49fb0000 rw-p 00108000 08:06 395734                     /lib/x86_64-linux-gnu/libm-2.23.so
+7f8a49fb0000-7f8a4a122000 r-xp 00000000 08:06 1177218                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21
+7f8a4a122000-7f8a4a322000 ---p 00172000 08:06 1177218                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21
+7f8a4a322000-7f8a4a32c000 r--p 00172000 08:06 1177218                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21
+7f8a4a32c000-7f8a4a32e000 rw-p 0017c000 08:06 1177218                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21
+7f8a4a32e000-7f8a4a332000 rw-p 00000000 00:00 0 
+7f8a4a332000-7f8a4af86000 r-xp 00000000 08:06 1182423                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7f8a4af86000-7f8a4b186000 ---p 00c54000 08:06 1182423                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7f8a4b186000-7f8a4b219000 r--p 00c54000 08:06 1182423                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7f8a4b219000-7f8a4b242000 rw-p 00ce7000 08:06 1182423                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7f8a4b242000-7f8a4b272000 rw-p 00000000 00:00 0 
+7f8a4b272000-7f8a4b28a000 r-xp 00000000 08:06 395715                     /lib/x86_64-linux-gnu/libpthread-2.23.so
+7f8a4b28a000-7f8a4b489000 ---p 00018000 08:06 395715                     /lib/x86_64-linux-gnu/libpthread-2.23.so
+7f8a4b489000-7f8a4b48a000 r--p 00017000 08:06 395715                     /lib/x86_64-linux-gnu/libpthread-2.23.so
+7f8a4b48a000-7f8a4b48b000 rw-p 00018000 08:06 395715                     /lib/x86_64-linux-gnu/libpthread-2.23.so
+7f8a4b48b000-7f8a4b48f000 rw-p 00000000 00:00 0 
+7f8a4b48f000-7f8a4b492000 r-xp 00000000 08:06 395726                     /lib/x86_64-linux-gnu/libdl-2.23.so
+7f8a4b492000-7f8a4b691000 ---p 00003000 08:06 395726                     /lib/x86_64-linux-gnu/libdl-2.23.so
+7f8a4b691000-7f8a4b692000 r--p 00002000 08:06 395726                     /lib/x86_64-linux-gnu/libdl-2.23.so
+7f8a4b692000-7f8a4b693000 rw-p 00003000 08:06 395726                     /lib/x86_64-linux-gnu/libdl-2.23.so
+7f8a4b693000-7f8a4b6ac000 r-xp 00000000 08:06 397223                     /lib/x86_64-linux-gnu/libz.so.1.2.8
+7f8a4b6ac000-7f8a4b8ab000 ---p 00019000 08:06 397223                     /lib/x86_64-linux-gnu/libz.so.1.2.8
+7f8a4b8ab000-7f8a4b8ac000 r--p 00018000 08:06 397223                     /lib/x86_64-linux-gnu/libz.so.1.2.8
+7f8a4b8ac000-7f8a4b8ad000 rw-p 00019000 08:06 397223                     /lib/x86_64-linux-gnu/libz.so.1.2.8
+7f8a4b8ad000-7f8a4ba6d000 r-xp 00000000 08:06 395741                     /lib/x86_64-linux-gnu/libc-2.23.so
+7f8a4ba6d000-7f8a4bc6d000 ---p 001c0000 08:06 395741                     /lib/x86_64-linux-gnu/libc-2.23.so
+7f8a4bc6d000-7f8a4bc71000 r--p 001c0000 08:06 395741                     /lib/x86_64-linux-gnu/libc-2.23.so
+7f8a4bc71000-7f8a4bc73000 rw-p 001c4000 08:06 395741                     /lib/x86_64-linux-gnu/libc-2.23.so
+7f8a4bc73000-7f8a4bc77000 rw-p 00000000 00:00 0 
+7f8a4bc77000-7f8a4bc84000 r-xp 00000000 08:06 1182415                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+7f8a4bc84000-7f8a4be84000 ---p 0000d000 08:06 1182415                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+7f8a4be84000-7f8a4be85000 r--p 0000d000 08:06 1182415                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+7f8a4be85000-7f8a4be86000 rw-p 0000e000 08:06 1182415                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+7f8a4be86000-7f8a4beac000 r-xp 00000000 08:06 395692                     /lib/x86_64-linux-gnu/ld-2.23.so
+7f8a4beac000-7f8a4bead000 r--s 00010000 08:06 1178793                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/zipfs.jar
+7f8a4bead000-7f8a4beaf000 r--s 00001000 08:06 1178682                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/dnsns.jar
+7f8a4beaf000-7f8a4beb4000 r--s 0003b000 08:06 1178684                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/sunjce_provider.jar
+7f8a4beb4000-7f8a4bf85000 rw-p 00000000 00:00 0 
+7f8a4bf85000-7f8a4bf88000 ---p 00000000 00:00 0 
+7f8a4bf88000-7f8a4c08b000 rw-p 00000000 00:00 0 
+7f8a4c08b000-7f8a4c08c000 r--s 0000a000 08:06 1178683                    /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/jaccess.jar
+7f8a4c08c000-7f8a4c09f000 rw-p 00000000 00:00 0 
+7f8a4c09f000-7f8a4c0a7000 rw-s 00000000 08:06 542810                     /tmp/hsperfdata_halvards/3231
+7f8a4c0a7000-7f8a4c0a8000 rw-p 00000000 00:00 0 
+7f8a4c0a8000-7f8a4c0a9000 r--p 00000000 00:00 0 
+7f8a4c0a9000-7f8a4c0ab000 rw-p 00000000 00:00 0 
+7f8a4c0ab000-7f8a4c0ac000 r--p 00025000 08:06 395692                     /lib/x86_64-linux-gnu/ld-2.23.so
+7f8a4c0ac000-7f8a4c0ad000 rw-p 00026000 08:06 395692                     /lib/x86_64-linux-gnu/ld-2.23.so
+7f8a4c0ad000-7f8a4c0ae000 rw-p 00000000 00:00 0 
+7ffc007d8000-7ffc007fa000 rw-p 00000000 00:00 0                          [stack]
+7ffc007fb000-7ffc007fd000 r--p 00000000 00:00 0                          [vvar]
+7ffc007fd000-7ffc007ff000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -XX:-OmitStackTraceInFastThrow -Dclojure.compile.path=/home/halvards/Projects/clojure/other/insane-noises/target/classes -Dinsane-noises.version=0.1.0-SNAPSHOT -Dclojure.debug=false -Djava.library.path=/home/halvards/Projects/clojure/other/insane-noises/target/native/linux/x86_64 
+java_command: clojure.main -i /tmp/form-init7003686462557278417.clj
+java_class_path (initial): /home/halvards/Projects/clojure/other/insane-noises/test:/home/halvards/Projects/clojure/other/insane-noises/src:/home/halvards/Projects/clojure/other/insane-noises/dev-resources:/home/halvards/Projects/clojure/other/insane-noises/resources:/home/halvards/Projects/clojure/other/insane-noises/target/classes:/home/halvards/.m2/repository/org/clojure/clojure/1.8.0/clojure-1.8.0.jar:/home/halvards/.m2/repository/overtone/scsynth-extras/3.5.7.0/scsynth-extras-3.5.7.0.jar:/home/halvards/.m2/repository/net/java/dev/jna/jna/3.4.0/jna-3.4.0.jar:/home/halvards/.m2/repository/overtone/at-at/1.2.0/at-at-1.2.0.jar:/home/halvards/.m2/repository/org/clojure/tools.nrepl/0.2.12/tools.nrepl-0.2.12.jar:/home/halvards/.m2/repository/clojure-complete/clojure-complete/0.2.4/clojure-complete-0.2.4.jar:/home/halvards/.m2/repository/overtone/byte-spec/0.3.1/byte-spec-0.3.1.jar:/home/halvards/.m2/repository/overtone/overtone/0.10.1/overtone-0.10.1.jar:/home/halvards/.m2/repository/overtone/osc-clj/0.9.0/osc-clj-0.9.0.jar:/home/halvards/.m2/repository/overtone/libs.handlers/0.2.0/libs.handlers-0.2.0.jar:/home/halvards/.m2/repository/overtone/scsynth/3.5.7.0/scsynth-3.5.7.0.jar:/home/halvards/.m2/repository/commons-net/commons-net/3.0.1/commons-net-3.0.1.jar:/home/halvards/.m2/repository/javax/jmdns/jmdns/3.4.1/jmdns-3.4.1.jar:/home/halvards/.m2/repository/clj-glob/clj-glob/1.0.0/clj-glob-1.0.0.jar:/home/halvards/.m2/repository/overtone/midi-clj/0.5.0/midi-clj-0.5.0.jar:/home/halvards/.m2/repository/org/clojure/data.json/0.2.3/data.json-0.2.3.jar:/home/halvards/.m2/repository/clj-native/clj-native/0.9.3/clj-native-0.9.3.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+CLASSPATH=/home/halvards/.lein/self-installs/leiningen-2.7.1-standalone.jar
+PATH=/home/halvards/anaconda3/bin:/home/halvards/anaconda3/bin:/home/halvards/bin:/home/halvards/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+SHELL=/bin/zsh
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xa6ad10], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xa6ad10], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x8b3bc0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x8b3bc0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x8b3bc0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x8b3bc0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x8b3a70], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x8b3f40], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x8b3f40], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x8b3f40], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x8b3f40], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=16.04
+DISTRIB_CODENAME=xenial
+DISTRIB_DESCRIPTION="Ubuntu 16.04.1 LTS"
+
+uname:Linux 4.4.0-89-generic #112-Ubuntu SMP Mon Jul 31 19:38:41 UTC 2017 x86_64
+libc:glibc 2.23 NPTL 2.23 
+rlimit: STACK 8192k, CORE 0k, NPROC 15249, NOFILE 65536, AS infinity
+load average:0,56 1,00 0,94
+
+/proc/meminfo:
+MemTotal:        3944568 kB
+MemFree:         1319412 kB
+MemAvailable:    1900176 kB
+Buffers:          102840 kB
+Cached:           834888 kB
+SwapCached:            0 kB
+Active:          1910964 kB
+Inactive:         557176 kB
+Active(anon):    1531984 kB
+Inactive(anon):   179676 kB
+Active(file):     378980 kB
+Inactive(file):   377500 kB
+Unevictable:          32 kB
+Mlocked:              32 kB
+SwapTotal:        974844 kB
+SwapFree:         974844 kB
+Dirty:               804 kB
+Writeback:             0 kB
+AnonPages:       1530588 kB
+Mapped:           305520 kB
+Shmem:            181104 kB
+Slab:              85528 kB
+SReclaimable:      58264 kB
+SUnreclaim:        27264 kB
+KernelStack:        7664 kB
+PageTables:        29552 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     2947128 kB
+Committed_AS:    5053376 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:    899072 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      113304 kB
+DirectMap2M:     3979264 kB
+
+
+CPU:total 2 (initial active 2) (2 cores per cpu, 1 threads per core) family 6 model 23 stepping 10, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, tsc
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Celeron(R) Dual-Core CPU       T3000  @ 1.80GHz
+stepping	: 10
+microcode	: 0xa0b
+cpu MHz		: 1795.571
+cache size	: 1024 KB
+physical id	: 0
+siblings	: 2
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx lm constant_tsc arch_perfmon pebs bts nopl aperfmperf pni dtes64 monitor ds_cpl tm2 ssse3 cx16 xtpr pdcm xsave lahf_lm dtherm
+bugs		:
+bogomips	: 3591.14
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Celeron(R) Dual-Core CPU       T3000  @ 1.80GHz
+stepping	: 10
+microcode	: 0xa0b
+cpu MHz		: 1795.571
+cache size	: 1024 KB
+physical id	: 0
+siblings	: 2
+core id		: 1
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx lm constant_tsc arch_perfmon pebs bts nopl aperfmperf pni dtes64 monitor ds_cpl tm2 ssse3 cx16 xtpr pdcm xsave lahf_lm dtherm
+bugs		:
+bogomips	: 3591.14
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 3944568k(1319412k free), swap 974844k(974844k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.131-b11) for linux-amd64 JRE (1.8.0_131-8u131-b11-2ubuntu1.16.04.3-b11), built on Jul 28 2017 01:23:32 by "buildd" with gcc 5.4.0 20160609
+
+time: Mon Aug 21 14:53:08 2017
+elapsed time: 154 seconds (0d 0h 2m 34s)
+

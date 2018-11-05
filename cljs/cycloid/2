@@ -1,0 +1,164 @@
+(ns cycloid.core
+  (:require [quil.core :as q :include-macros true]
+            [quil.middleware :as m]))
+
+(defn setup []
+  (q/frame-rate 30)
+  (q/color-mode :hsb)
+  {:color 0
+   :angle 0})
+
+(defn update-state [state]
+  {:color (mod (+ (:color state) 0.7) 255)
+   :angle (+ (:angle state) 0.1)})
+
+(defn draw-state [state]
+  (q/background 240)
+  (q/fill (:color state) 255 255)
+  (let [angle (:angle state)
+        x (* 150 (q/cos angle))
+        y (* 150 (q/sin angle))]
+    (q/with-translation [(/ (q/width) 2)
+                         (/ (q/height) 2)]
+      ; Draw the circle.
+      (q/ellipse x y 100 100))))
+
+(q/defsketch cycloid
+  :host "cycloid"
+  :size [500 500]
+  ; setup function called only once, during sketch initialization.
+  :setup setup
+  ; update-state is called on each iteration before draw-state.
+  :update update-state
+  :draw draw-state
+  ; This sketch uses functional-mode middleware.
+  ; Check quil wiki for more info about middlewares and particularly
+  ; fun-mode.
+  :middleware [m/fun-mode])
+
+
+(ns stuff.cycloid
+  (:require [quil.core :as q :include-macros true]
+            [clojure.math.numeric-tower :as math]
+            [quil.middleware :as m]))
+
+; Nice tricks: 
+; begin-shape with triangles
+;
+;
+;
+;
+;
+
+
+(defn linspace [start stop num]
+   (take
+     num
+     (range
+       start
+       Double/POSITIVE_INFINITY
+       (/ (- stop start) (dec num)))))
+
+(def r 72)
+(def revs (atom 0))
+(def play-state (atom true))
+(def mod-count (atom 0))
+(def point-count (atom 50))
+
+(defn get-i []
+  (+ @revs (/ @mod-count 500)))
+
+(defn update-state[state]
+  (update (if (:play? state)
+            (update state :frame inc)
+            state)
+          :i (+ (:revs state) (/ (:frame state) 500))))
+
+(defn draw-state [state]
+  (q/background 0)
+  (q/stroke 0.3 0.8 0.7)
+  (q/fill 0.6)
+  (q/translate (/ (q/width) 2) (/ (q/height ) 2))
+  (q/begin-shape :lines)
+  (let [i (:i state) ]
+    (q/text (str i) 10 10)
+    (doseq [t (linspace 0 (* 20 (. Math PI)) @point-count)]
+       (let [c (q/cos (* i t))
+             s (q/sin (* i t)) ]
+         (q/vertex (+ (* 2 r c) (* r (q/cos t))) 
+                  (+ (* 2 r s) (* r (q/sin t))) ))))
+  (q/end-shape)
+  (if (not (:play? state))
+      (q/no-loop)))
+
+(defn setup []
+  (q/color-mode :hsb 1.0)
+  (q/frame-rate 20)
+  (q/background 0 0 0)
+  (q/text "By halvarsu" (- (q/width) 80) (- (q/height) 10))
+  (q/stroke-weight 2)
+  {:revs 0
+   :play? false
+   :frame 0
+   :point-count 50
+   :i 0})
+
+(defn pause [state]
+  (swap! play-state #(not %1)))
+
+(defn inc-points [state]
+  (swap! point-count + 1)
+  (q/start-loop))
+
+(defn dec-points [state]
+  (swap! point-count - 1)
+  (q/start-loop))
+
+
+(defn go-to-integer [state]
+  (swap! mod-count * 0)
+  (q/start-loop))
+
+(defn mouse-click [state]
+  (if (> (/ (q/width) 2) (q/mouse-x))
+    (q/start-loop)
+    (update state :revs inc)
+    (update state :revs dec)
+    )
+  )
+
+(defn next-frame [state]
+  (swap! mod-count + 1)
+  (q/start-loop))
+
+(defn prev-frame [state]
+  (swap! mod-count - 1)
+  (q/start-loop))
+
+(defn save-frame [state]
+  (q/save (format "cycloid%.2f.png" (float (get-i)) )))
+
+(def button-choices {:a inc-points
+                     :d dec-points
+                     :i go-to-integer
+                     :n next-frame 
+                     :p prev-frame 
+                     :s save-frame
+                     :x pause})
+(defn button-press [state]
+  (let [button (q/key-as-keyword)
+        func (button button-choices)]
+        (func state)))
+
+(q/defsketch cycloid
+  :host "cycloid"
+  :size [1280 800]
+  :draw draw
+  :setup setup
+  :mouse-pressed mouse-click
+  :key-pressed button-press)
+
+(defn refresh []
+  (use :reload 'stuff.cycloid)
+  (.loop cycloid))
+

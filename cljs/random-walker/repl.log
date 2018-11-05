@@ -1,0 +1,28 @@
+Compiling ClojureScript...
+Compiling "js/main.js" from ["src"]...
+[32mSuccessfully compiled "js/main.js" in 1.42 seconds.[0m
+nREPL server started on port 43626 on host 127.0.0.1 - nrepl://127.0.0.1:43626
+REPL-y 0.3.7, nREPL 0.2.12
+Clojure 1.8.0
+OpenJDK 64-Bit Server VM 1.8.0_131-8u131-b11-0ubuntu1.16.04.2-b11
+    Docs: (doc function-name-here)
+          (find-doc "part-of-name-here")
+  Source: (source function-name-here)
+ Javadoc: (javadoc java-object-or-class-here)
+    Exit: Control+D or (exit) or (quit)
+ Results: Stored in vars *1, *2, *3, an exception in *e
+
+user=> 
+
+user=> 
+
+user=> lk;'l
+
+user=> 
+
+user=> 
+
+user=> Welcome back!
+Welcome back!
+Welcome back!
+Bye for now!
