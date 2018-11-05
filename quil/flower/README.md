@@ -1,6 +1,6 @@
-# unnamed
+# flower
 
-A Quil sketch designed to ... well, that part is up to you.
+A quil sketch with a spinning flower. 
 
 ## Usage
 
@@ -8,7 +8,7 @@ LightTable - open `core.clj` and press `Ctrl+Shift+Enter` to evaluate the file.
 
 Emacs - run cider, open `core.clj` and press `C-c C-k` to evaluate the file.
 
-REPL - run `(require 'unnamed.core)`.
+REPL - run `(require 'flower.core)`.
 
 ## License
 

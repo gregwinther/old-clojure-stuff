@@ -13,30 +13,6 @@
   {:color (mod (+ (:color state) 0.7) 255)
    :angle (mod (+ (:angle state) 0.1) (* (Math/PI) 2))   })
 
-(defn draw-state [state]
-  ; Clear the sketch by filling it with light-grey color.
-  (q/background 240)
-  ; Set circle color.
-  (q/fill (:color state) 255 255)
-  ; Calculate x and y coordinates of the circle.
-  (let [angle (:angle state)
-        x 0 ;(* 150 (q/cos angle))
-        y 0 ;(* 150 (q/sin angle))
-        r 50
-        dt (/ Math/PI 3)]
-    ; Move origin point to the center of the sketch.
-    (q/with-translation [(/ (q/width) 2)
-                         (/ (q/height) 2)]
-      take
-      ; Draw the circle.
-      (doseq [x-val (repeatedly 1 rand)
-              y-val (repeatedly 1 rand)]
-      (draw-flower x-val y-val  :r 400 :start-angle (:angle state))
-      (q/ellipse x-val y-val 50 50)
-      ))))
-
-(take 5 (repeatedly rand))
-
 (defn draw-flower 
   [x y & {:keys [start-angle stop-angle n r]
           :or {start-angle 0
@@ -57,8 +33,30 @@
    )
   )
 
-(q/defsketch unnamed
-  :title "You spin my circle right round"
+(defn draw-state [state]
+  ; Clear the sketch by filling it with light-grey color.
+  (q/background 240)
+  ; Set circle color.
+  (q/fill (:color state) 255 255)
+  ; Calculate x and y coordinates of the circle.
+  (let [angle (:angle state)
+        x 0 ;(* 150 (q/cos angle))
+        y 0 ;(* 150 (q/sin angle))
+        r 50
+        dt (/ Math/PI 3)]
+    ; Move origin point to the center of the sketch.
+    (q/with-translation [(/ (q/width) 2)
+                         (/ (q/height) 2)]
+      take
+      ; Draw the circle.
+      (doseq [x-val (repeatedly 1 rand)
+              y-val (repeatedly 1 rand)]
+      (draw-flower x-val y-val  :r 400 :start-angle (:angle state))
+      ))))
+
+
+(q/defsketch flower
+  :title "Spinning flower. Wow."
   :size [500 500]
   :setup setup
   :update update-state
