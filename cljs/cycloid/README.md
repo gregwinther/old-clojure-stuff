@@ -1,5 +1,5 @@
 # cycloid
-A cycloid running on the inside of a circle, creating novel patterns.
+A cycloid running on the inside of a circle, creating novel patterns. Runs on clojurescript, compiled version found at my [folk.uio.no](http://folk.uio.no/halvarsu/images/animations/cycloid/) page
 
 ## Usage
 
