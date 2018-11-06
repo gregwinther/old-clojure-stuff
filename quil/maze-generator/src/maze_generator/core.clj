@@ -1,8 +1,15 @@
 (ns maze-generator.core
-  (:require 
+  #?(:clj
+     (:require 
+            [clojure.java.io :as io]
             [clojure.set :as cset]
             [quil.core :as q]
-            [quil.middleware :as m]))
+            [quil.util :as u]
+            [quil.applet :as ap]
+            [quil.middleware :as m])))
+
+
+
 
 
 (def w  20)
@@ -10,12 +17,14 @@
 ; (def height  80)
 ; (def rows  (int (/ width w)))
 ; (def cols  (int (/ height w)))
-(def rows  40)
-(def cols  80)
+(def rows  20)
+(def cols  20)
 (def width  (* rows w))
 (def height  (* cols w))
 (def directions [ :up :right :down :left ])
 (def total-boxes (* rows cols))
+(def output-folder "out/")
+(def center (atom (get-index (/ cols 2) (/ rows 2))))
 
 
 (defn get-pos [index]
@@ -73,13 +82,6 @@
                          (get-adjacent current)))))
 
 
-(defn get-next [current visited]
-  (if-let [neighbors (seq (filter legal-pos? 
-                                  (vec (cset/difference (get-adjacent current) 
-                                                        visited))))]
-    (rand-nth (vec neighbors))
-    nil))
-
 
 (defn update-state [state]
   (if (< (count (:visited-set state)) total-boxes)
@@ -102,86 +104,121 @@
   )
 
 
-(def to-pixels [index]
-  (map (+ (* w %) (/ w 2)) (get-pos index)))
+
+
+(defn to-pixels [index]
+  (map #(+ (* w %) (/ w 2)) (get-pos index)))
 
 (defn draw-state [state]
-  (q/no-stroke)
-  (q/fill 100 100 200)
   ; (let [[i j] (get-pos (:current state))]
   ;   (q/rect (* i w) (* j w) (- w 2) (- w 2)))
+  (q/no-stroke)
   (q/fill 0 0 255)
   (q/stroke 10)
   (q/stroke-weight 2)
-  ; (q/rect 15 6 60 35)
-  ; (let [index (:current state)
-  ;       [i j] (get-pos index)]
-  ;   (q/fill 0 0 0)
-  ;   (q/text (str (:current state)) 20 20)
-  ;   (q/text (str "(" i ", " j ")") 20 35)
-  ;   )
-  (let [
-        pos2 (to-pixels (:current state)) 
+  ; (q/with-graphics (:graphics state)
+  ;   (q/ellipse 10 10 10 10)
+  ; )
+  (q/set-image 0 0 (:background state))
+  ; (draw-info state)
+  (let [pos1 (to-pixels (:current state)) 
         [x1 y1] pos1]
-    (if-let [pos2 (to-pixels (take-last (:backtrack state)))]
-      (let [x2 y2 pos2])
-
-                       )
-
-    (q/with-stroke [255 255 255 255]
-      (q/point x1 y1))
-    (q/point x2 y2)
-    (if (> (count pos) 2)
-      (apply q/line pos)
+    (q/point x1 y1)
+    ; (println (to-pixels (last (:backtrack state))))
+    (if-let [pos2 (to-pixels (last (:backtrack state)))]
+      (let [[x2 y2] pos2]
+        (q/point x2 y2)
+        (q/line x1 y1 x2 y2))
       )
+    ))
+
+
+(def init-state (create-init-state))
+(to-pixels (:current init-state))
+
+
+(defn draw-background []
+  (q/with-stroke nil
+    (q/no-stroke)
+    (q/fill 100 100 200)
+    (q/background 255)
+    ; draw all rects with colors
+    (doseq [i (range cols)
+            j (range rows)]
+      (q/fill 100
+              (q/map-range j 0 rows 0 255) 
+              160
+              100)
+      (q/rect (* i w) (* j w) (- w 2) (- w 2)))
     )
   )
 
 
-(apply + (flatten [1 2] [3 4]))
 
-(defn draw-background [state]
-  (q/no-stroke)
-  (q/fill 100 100 200)
-  (q/background 255)
-  ; draw all rects with colors
-  (doseq [i (range cols)
-          j (range rows)]
-    (q/fill 100
-            (q/map-range j 0 rows 0 255) 
-            160
-            100)
-    (q/rect (* i w) (* j w) (- w 2) (- w 2)))
-  (q/fill 100 100 100)
-  ; (doseq [index (:visited-set state)]
-  ;   (let [[i j] (get-pos index)]
-  ;    (q/rect (* i w) (* j w) (- w 2) (- w 2))))
-  )
+(defn draw-info [state]
+  (q/rect 15 6 60 35)
+  (let [index (:current state)
+        [i j] (get-pos index)]
+    (q/fill 0 0 0)
+    (q/text (str (:current state)) 20 20)
+    (q/text (str "(" i ", " j ")") 20 35)))
 
 
+(q/set-image)
 
+(q/create-graphics)
 
-(def center (atom (get-index (/ cols 2) (/ rows 2))))
+(q/with-graphics)
+
 (defn create-init-state []
   {:current @center
       :visited-set #{}
       :backtrack []
-      :index 0})
+      :index 0
+      :line (q/create-graphics width height)
+      :background (q/create-graphics width height)})
 
 
+(defn setup-state []
+  (let [init-state (create-init-state)]
+    (q/with-graphics (:background init-state)
+      (draw-background)
+    )
+    init-state))
 
 (defn setup []
-  (q/frame-rate 6)
+  (q/frame-rate 30)
   (q/color-mode :hsb)
-  (let [init-state (create-init-state)]
-    (draw-background init-state)
-    init-state)
-  (create-init-state)) 
+  (setup-state)) 
+
+
+(defn save-image []
+  (q/save (str output-folder "labyrinth" (count-pngs) ".png")))
+
+
+(defn count-pngs []
+  (count 
+    (let [grammar-matcher (.getPathMatcher 
+                          (java.nio.file.FileSystems/getDefault)
+                          "glob:*.{png}")]
+  (->> output-folder
+       clojure.java.io/file
+       file-seq
+       (filter #(.isFile %))
+       (filter #(.matches grammar-matcher (.getFileName (.toPath %))))
+       (mapv #(.getAbsolutePath %))))))
+
 
 (defn reset-state [state event]
-  (draw-background state)
-  (reset! center (:current state))
-  (create-init-state))
+  (setup-state))
+
+(defn key-press [state event]
+  (println (:key event))
+  (case (:key event)
+    :s (save-image)
+    nil)
+  state)
+
 
 (q/defsketch maze-generator
   :title "Maze Generator"
@@ -190,7 +227,6 @@
   :update update-state
   :draw draw-state
   :mouse-pressed reset-state
+  :key-pressed key-press
   :features [:keep-on-top]
-  :middleware [m/fun-mode
-               ; m/pause-on-error
-               ])
+  :middleware [m/fun-mode])
